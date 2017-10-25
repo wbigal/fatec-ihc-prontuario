@@ -20,3 +20,9 @@
 
 # Ignore simplecove's coverage file
 /coverage
+
+# Ignore .env file
+.env
+
+# Ignore MACOS system files
+.DS_Store

@@ -43,6 +43,9 @@ group :development, :test do
 
   # Factory Girl S2 Rails
   gem 'factory_girl_rails'
+
+  # Loads environment variables from `.env`
+  gem 'dotenv-rails'
 end
 
 group :development do
