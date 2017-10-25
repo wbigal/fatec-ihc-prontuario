@@ -1,24 +1,23 @@
-# README
+# Interação Humano-Computador - FATEC-SP
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Este projeto é um prontuário eletrônico com o histórico de atendimentos de um cidadão, desenvolvido para a disciplina Interação Humano-Computador (IHC) da FATEC-SP. Ele .
 
-Things you may want to cover:
+## Setup
 
-* Ruby version
+### Pré-requisitos
 
-* System dependencies
+Para executar o projeto no seu ambiente de desenvolvemento você precisará atender os seguintes requisitos:
 
-* Configuration
+* Ter o RVM configurado e a versão 2.4.1 do Ruby já instalada
+* Ter o bando de dados Postgres instalado
 
-* Database creation
+### Configurar ambiente
 
-* Database initialization
+Para configurar seu ambiente de desenvolvimento execute as seguintes instruções:
 
-* How to run the test suite
+```bash
+cp .env.sample .env
+rake db:setup
+```
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Edite o arquivo `.env` com os valores correspondentes ao seu ambiente de desenvolvimento.
