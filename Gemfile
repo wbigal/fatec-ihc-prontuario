@@ -58,6 +58,8 @@ group :test do
   # Strategies for cleaning databases in Ruby.
   # Can be used to ensure a clean state for testing.
   gem 'database_cleaner'
+  # Collection of testing matchers extracted from Shoulda
+  gem 'shoulda-matchers', require: false  
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
