@@ -84,6 +84,9 @@ group :test do
 
   # Brings back `assigns` and `assert_template` to your Rails tests
   gem 'rails-controller-testing'
+
+  # CodeClimate Test Integration
+  gem 'codeclimate-test-reporter', require: nil
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
