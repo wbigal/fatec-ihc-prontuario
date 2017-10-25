@@ -77,6 +77,9 @@ group :test do
   gem 'database_cleaner'
   # Collection of testing matchers extracted from Shoulda
   gem 'shoulda-matchers', require: false
+
+  # Brings back `assigns` and `assert_template` to your Rails tests
+  gem 'rails-controller-testing'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
