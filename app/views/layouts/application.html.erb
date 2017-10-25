@@ -1,14 +1,41 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-BR">
   <head>
-    <title>FatecIhcProntuario</title>
+    <title>Bem-vindo | Sistema de Prontuário Eletrônico - SPE</title>
+    <meta name="description" content="Seja bem-vindo ao portal do Sistema de Prontuário Eletrônico.">
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="robots" content="noindex, nofollow">
     <%= csrf_meta_tags %>
-
-    <%= stylesheet_link_tag    'application', media: 'all' %>
-    <%= javascript_include_tag 'application' %>
+    <%= stylesheet_link_tag 'application', media: 'all' %>
+    <%= yield(:stylesheet) %>
   </head>
 
   <body>
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark container">
+      <a class="navbar-brand" href="/">SPE</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsDefault" aria-controls="navbarsDefault" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarsDefault">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="btn btn-primary btn-sm" href="#" role="button">Sou Médico</a>
+          </li>
+          <li class="nav-item">
+            <a class="btn btn-success btn-sm" href="#" role="button">Sou Admin</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
     <%= yield %>
+
+    <footer class="container">
+      <p>&copy; Sistema de Prontuário Eletrônico - SPE <%= Date.today.year %></p>
+    </footer>
+    <%= javascript_include_tag 'application' %>
   </body>
 </html>

@@ -1,0 +1,71 @@
+<main role="main">
+  <div class="jumbotron container">
+    <h1 class="display-3">Seja bem-vindo ao SPE</h1>
+    <p>
+      O Sistema de Prontuário Eletrônico, ou SPE, é o sistema nacional que conecta médicos ao histórico médico de cada cidadão. Conheça abaixo os benefícios
+      proporcionados pelo SPE, por perfíl:
+    </p>
+  </div>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6">
+        <h2>Médicos</h2>
+        <p>Possibilidade de conhecer o histórico do paciente com rapidez e agilidade, no momento do antendimento. Não perca tempo e solicite seu cadastro.</p>
+        <p><a class="btn btn-info btn-md" href="#" role="button" data-toggle="modal" data-target="#doctorSignUp">Cadastre-se &raquo;</a></p>
+      </div>
+      <div class="col-md-6">
+        <h2>Cidadãos</h2>
+        <p>Seu histórico médico não fica mais restrito ao local ou rede onde você foi atendido. Qualquer médico cadastrado no SPE terá acesso a seu histórico médico para melhor atende-lo.</p>
+        <p><a class="btn btn-info btn-md" href="#" role="button" data-toggle="modal" data-target="#citizenSignUp">Cadastre-se &raquo;</a></p>
+      </div>
+    </div>
+    <hr>
+  </div>
+</main>
+
+<div class="modal fade" id="doctorSignUp" tabindex="-1" role="dialog" aria-labelledby="doctorSignUpLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="doctorSignUpLabel">Médico: como se cadastrar</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        Você deve ter em mãos seu RG, CPF, comprovante de residência e documentação do CRM que comprove
+        seu registro de médico. Solicite então a um Administrador seu cadastro de médico no Sistema de
+        Prontuário Eletrônico.
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="citizenSignUp" tabindex="-1" role="dialog" aria-labelledby="citizenSignUpLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="citizenSignUpLabel">Cidadão: como se cadastrar</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        Você deve ter em mãos seu RG, CPF, comprovante de residência e opcionalmente carteirinha do SUS.
+        Solicite então a um Administrador seu cadastro de cidadão no Sistema de
+        Prontuário Eletrônico.
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%- content_for(:stylesheet) do %>
+  <%= stylesheet_link_tag 'welcome', media: 'all' %>
+<% end %>
