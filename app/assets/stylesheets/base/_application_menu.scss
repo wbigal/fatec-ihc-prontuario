@@ -1,0 +1,18 @@
+#navbarsDefault {
+  .nav-item {
+    margin-right: 10px;
+  }
+}
+
+@media (max-width: $screen-sm-min) {
+  #navbarsDefault {
+    .nav-item {
+      margin: 0;
+      
+      .btn {
+        width: 100%;
+        margin-top: 10px;
+      }
+    }
+  }
+}
