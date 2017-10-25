@@ -48,7 +48,7 @@ group :development, :test do
   gem 'rspec-rails', '~> 3.6'
 
   # Factory Girl S2 Rails
-  gem 'factory_girl_rails'
+  gem 'factory_bot_rails'
 
   # Loads environment variables from `.env`
   gem 'dotenv-rails'
