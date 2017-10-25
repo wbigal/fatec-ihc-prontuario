@@ -55,11 +55,14 @@ group :development do
 end
 
 group :test do
+  # Code coverage for Ruby 1.9+ with a powerful configuration library and
+  # automatic merging of coverage across test suites
+  gem 'simplecov', require: false
   # Strategies for cleaning databases in Ruby.
   # Can be used to ensure a clean state for testing.
   gem 'database_cleaner'
   # Collection of testing matchers extracted from Shoulda
-  gem 'shoulda-matchers', require: false  
+  gem 'shoulda-matchers', require: false
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
