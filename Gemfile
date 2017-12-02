@@ -17,26 +17,16 @@ gem 'puma', '~> 3.7'
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
-# See https://github.com/rails/execjs#readme for more supported runtimes
-# gem 'therubyracer', platforms: :ruby
-
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
 # JavaScript libraries and related
 gem 'jquery-rails', '~> 4.3.1'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.5'
-# Use Redis adapter to run Action Cable in production
-# gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
-
-# Use Capistrano for deployment
-# gem 'capistrano-rails', group: :development
-
 # Bootstrap 4 Ruby Gem for Rails / Sprockets and Compass.
 gem 'bootstrap', '~> 4.0.0.beta2.1'
-
 # A Ruby static code analyzer, based on the community Ruby style guide.
 gem 'rubocop', require: false
 
@@ -47,13 +37,10 @@ group :development, :test do
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '~> 2.13'
   gem 'selenium-webdriver'
-
   # RSpec for Rails-3+
   gem 'rspec-rails', '~> 3.6'
-
   # Factory Girl S2 Rails
   gem 'factory_bot_rails'
-
   # Loads environment variables from `.env`
   gem 'dotenv-rails'
 end
@@ -67,9 +54,10 @@ group :development do
   # background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
-
   # A static analysis security vulnerability scanner for RoR applications
   gem 'brakeman', require: false
+  # Annotate Rails classes with schema and routes info
+  gem 'annotate'
 end
 
 group :test do
@@ -81,10 +69,8 @@ group :test do
   gem 'database_cleaner'
   # Collection of testing matchers extracted from Shoulda
   gem 'shoulda-matchers', require: false
-
   # Brings back `assigns` and `assert_template` to your Rails tests
   gem 'rails-controller-testing'
-
   # CodeClimate Test Integration
   gem 'codeclimate-test-reporter', require: nil
 end
