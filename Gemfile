@@ -24,7 +24,7 @@ gem 'jquery-rails', '~> 4.3.1'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.5'
 # Use ActiveModel has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
+gem 'bcrypt', '~> 3.1.7'
 # Bootstrap 4 Ruby Gem for Rails / Sprockets and Compass.
 gem 'bootstrap', '~> 4.0.0.beta2.1'
 # A Ruby static code analyzer, based on the community Ruby style guide.
