@@ -1,0 +1,11 @@
+pt-BR:
+  routes:
+    # Default Actions
+    new: novo
+    edit: editar
+    create: criar
+    index: inicio
+    update: atualizar
+    # Controllers
+    accounts: contas
+    sessions: sessoes
