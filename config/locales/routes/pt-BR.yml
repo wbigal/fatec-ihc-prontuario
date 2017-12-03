@@ -9,3 +9,6 @@ pt-BR:
     # Controllers
     accounts: contas
     sessions: sessoes
+    patients: pacientes
+    permissions: autorizacoes
+    search_doctor: pesquisar-medico
