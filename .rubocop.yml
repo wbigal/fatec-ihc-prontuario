@@ -2,7 +2,9 @@ AllCops:
   Exclude:
     - db/schema.rb
     - db/migrate/*
+    - db/seeds/*
     - bin/*
+    - config/initializers/simple_form*
 Rails:
   Enabled: true
 

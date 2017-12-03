@@ -34,6 +34,9 @@ gem 'email_validator'
 gem 'slim-rails'
 # Translate your rails app route to various languages without the hassle
 gem 'route_translator'
+# Forms made easy for Rails! It's tied to a simple DSL, with no opinion on
+# markup.
+gem 'simple_form'
 # A Ruby static code analyzer, based on the community Ruby style guide.
 gem 'rubocop', require: false
 
