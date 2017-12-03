@@ -32,6 +32,8 @@ gem 'email_validator'
 # Slim is a template language whose goal is reduce the syntax to the essential
 # parts without becoming cryptic.
 gem 'slim-rails'
+# Translate your rails app route to various languages without the hassle
+gem 'route_translator'
 # A Ruby static code analyzer, based on the community Ruby style guide.
 gem 'rubocop', require: false
 
