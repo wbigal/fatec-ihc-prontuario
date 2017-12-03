@@ -12,6 +12,6 @@
 FactoryBot.define do
   factory :medico do
     pessoa
-    crm 123_987
+    crm { Faker::Number.number(6) }
   end
 end

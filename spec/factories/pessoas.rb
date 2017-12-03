@@ -14,7 +14,7 @@
 
 FactoryBot.define do
   factory :pessoa do
-    cns '1234567890123456'
+    cns { Faker::Number.number(16).to_s }
     nome_completo 'Fabio Carille'
     data_nascimento Date.new(1973, 9, 26)
   end
