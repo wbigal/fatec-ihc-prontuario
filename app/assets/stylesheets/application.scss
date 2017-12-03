@@ -1,8 +1,18 @@
 @import 'base/base';
 
-.title-area {
+body,
+main,
+html {
+  max-width: $screen-sm-min;
+}
+
+#title-area {
   margin-top: 1em;
   margin-bottom: 1em;
+}
+
+#form-area {
+  max-width: 400px;
 }
 
 footer {
