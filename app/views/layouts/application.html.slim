@@ -1,0 +1,33 @@
+doctype html
+html[lang="pt-BR"]
+  head
+    title
+      | Bem-vindo | Sistema de Prontuário Eletrônico - SPE
+    meta[name="description" content="Seja bem-vindo ao portal do Sistema de Prontuário Eletrônico."]
+    meta[charset="utf-8"]
+    meta[http-equiv="Content-Type" content="text/html; charset=utf-8"]
+    meta[name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"]
+    meta[name="robots" content="noindex, nofollow"]
+    = csrf_meta_tags
+    = stylesheet_link_tag 'application', media: 'all'
+    = yield(:stylesheet)
+  body
+    nav.navbar.navbar-expand-md.navbar-dark.bg-dark.container
+      a.navbar-brand[href="/"]
+        | SPE
+      button.navbar-toggler[type="button" data-toggle="collapse" data-target="#navbarsDefault" aria-controls="navbarsDefault" aria-expanded="false" aria-label="Toggle navigation"]
+        span.navbar-toggler-icon
+      #navbarsDefault.collapse.navbar-collapse
+        ul.navbar-nav.ml-auto
+          li.nav-item
+            a.btn.btn-primary.btn-sm[href="#" role="button"]
+              | Sou Médico
+          li.nav-item
+            a.btn.btn-success.btn-sm[href="#" role="button"]
+              | Sou Admin
+    = yield
+    footer.container
+      p
+        | © Sistema de Prontuário Eletrônico - SPE 
+        = Date.today.year
+    = javascript_include_tag 'application'

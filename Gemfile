@@ -29,6 +29,9 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'bootstrap', '~> 4.0.0.beta2.1'
 # An email validator for Rails
 gem 'email_validator'
+# Slim is a template language whose goal is reduce the syntax to the essential
+# parts without becoming cryptic.
+gem 'slim-rails'
 # A Ruby static code analyzer, based on the community Ruby style guide.
 gem 'rubocop', require: false
 
