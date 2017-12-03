@@ -16,4 +16,15 @@ RSpec.describe ApplicationController, type: :controller do
       it { expect(controller.pessoa_signed_in?).to be_falsy }
     end
   end
+
+  describe '#sign_out' do
+    let!(:pessoa) { create(:pessoa, :with_account) }
+
+    before { controller.current_pessoa = pessoa }
+
+    it do
+      controller.sign_out
+      expect(controller.pessoa_signed_in?).to be_falsy
+    end
+  end
 end

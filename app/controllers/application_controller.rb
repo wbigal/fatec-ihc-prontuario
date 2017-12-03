@@ -14,4 +14,8 @@ class ApplicationController < ActionController::Base
   def pessoa_signed_in?
     session[:current_pessoa].present?
   end
+
+  def sign_out
+    reset_session
+  end
 end
