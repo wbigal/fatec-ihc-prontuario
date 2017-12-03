@@ -19,6 +19,10 @@ RSpec.describe Pessoa, type: :model do
     expect(create(:pessoa)).to be_valid
   end
 
+  describe '#medico' do
+    it { is_expected.to have_one(:medico) }
+  end
+
   describe '#cns' do
     it { is_expected.to validate_presence_of(:cns) }
     it { is_expected.to validate_length_of(:cns).is_equal_to(16) }

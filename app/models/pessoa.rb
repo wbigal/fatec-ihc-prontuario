@@ -15,6 +15,8 @@
 class Pessoa < ApplicationRecord
   include BCrypt
 
+  has_one :medico, dependent: :destroy
+
   validates :cns, presence: true,
                   length: { is: 16 },
                   uniqueness: { case_sensitive: false }

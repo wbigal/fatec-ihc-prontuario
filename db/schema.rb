@@ -10,10 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171202215345) do
+ActiveRecord::Schema.define(version: 20171203004423) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "medicos", force: :cascade do |t|
+    t.bigint "pessoa_id", null: false
+    t.integer "crm", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["pessoa_id"], name: "index_medicos_on_pessoa_id"
+    t.index ["pessoa_id"], name: "ux_medicos_pessoa_id", unique: true
+  end
 
   create_table "pessoas", force: :cascade do |t|
     t.string "cns", limit: 16, null: false
@@ -28,4 +37,5 @@ ActiveRecord::Schema.define(version: 20171202215345) do
     t.index ["email"], name: "index_pessoas_on_email", unique: true
   end
 
+  add_foreign_key "medicos", "pessoas"
 end
