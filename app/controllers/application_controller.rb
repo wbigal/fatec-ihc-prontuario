@@ -11,7 +11,7 @@ class ApplicationController < ActionController::Base
     session[:current_pessoa] = pessoa&.id
   end
 
-  def current_pessoa?
+  def pessoa_signed_in?
     session[:current_pessoa].present?
   end
 end

@@ -8,12 +8,12 @@ RSpec.describe ApplicationController, type: :controller do
       before { controller.current_pessoa = pessoa }
 
       it { expect(controller.current_pessoa).to eq(pessoa) }
-      it { expect(controller.current_pessoa?).to be_truthy }
+      it { expect(controller.pessoa_signed_in?).to be_truthy }
     end
 
     context 'when current_pessoa is not present' do
       it { expect(controller.current_pessoa).to be_nil }
-      it { expect(controller.current_pessoa?).to be_falsy }
+      it { expect(controller.pessoa_signed_in?).to be_falsy }
     end
   end
 end
