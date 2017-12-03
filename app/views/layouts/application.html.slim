@@ -12,22 +12,30 @@ html[lang="pt-BR"]
     = stylesheet_link_tag 'application', media: 'all'
     = yield(:stylesheet)
   body
-    nav.navbar.navbar-expand-md.navbar-dark.bg-dark.container
-      a.navbar-brand[href="/"]
-        | SPE
-      button.navbar-toggler[type="button" data-toggle="collapse" data-target="#navbarsDefault" aria-controls="navbarsDefault" aria-expanded="false" aria-label="Toggle navigation"]
-        span.navbar-toggler-icon
-      #navbarsDefault.collapse.navbar-collapse
-        ul.navbar-nav.ml-auto
-          li.nav-item
-            a.btn.btn-primary.btn-sm[href="#" role="button"]
-              | Sou Médico
-          li.nav-item
-            a.btn.btn-success.btn-sm[href="#" role="button"]
-              | Sou Admin
-    = yield
-    footer.container
-      p
-        | © Sistema de Prontuário Eletrônico - SPE 
-        = Date.today.year
+    main
+      nav.navbar.navbar-expand-md.navbar-dark.bg-dark.container
+        a.navbar-brand[href="/"]
+          | SPE
+        button.navbar-toggler[type="button" data-toggle="collapse" data-target="#navbarsDefault" aria-controls="navbarsDefault" aria-expanded="false" aria-label="Toggle navigation"]
+          span.navbar-toggler-icon
+        #navbarsDefault.collapse.navbar-collapse
+          ul.navbar-nav.ml-auto
+            li.nav-item
+              a.btn.btn-primary.btn-sm[href="#" role="button"]
+                | Sou Médico
+            li.nav-item
+              a.btn.btn-success.btn-sm[href="#" role="button"]
+                | Sou Admin
+
+      - flash.each do |key, value|
+        div[class="#{flash_class(key)} alert-dismissible fade show" role="alert"]
+          = value
+          button.close[type="button" data-dismiss="alert" aria-label="Close"]
+            span[aria-hidden="true"]
+              | ×
+      = yield
+      footer.container
+        p
+          | © Sistema de Prontuário Eletrônico - SPE
+          = Date.today.year
     = javascript_include_tag 'application'

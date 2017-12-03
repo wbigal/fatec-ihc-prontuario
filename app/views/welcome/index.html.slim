@@ -1,28 +1,27 @@
-main[role="main"]
-  .jumbotron.container
-    h1.display-3
-      | Seja bem-vindo ao SPE
-    p
-      |  O Sistema de Prontuário Eletrônico, ou SPE, é o sistema nacional que conecta médicos ao histórico médico de cada cidadão. Conheça abaixo os benefícios proporcionados pelo SPE, por perfíl: 
-  .container
-    .row
-      .col-md-6
-        h2
-          | Médicos
-        p
-          | Possibilidade de conhecer o histórico do paciente com rapidez e agilidade, no momento do antendimento. Não perca tempo e solicite seu cadastro.
-        p
-          a.btn.btn-info.btn-md[href="#" role="button" data-toggle="modal" data-target="#doctorSignUp"]
-            | Cadastre-se »
-      .col-md-6
-        h2
-          | Cidadãos
-        p
-          | Seu histórico médico não fica mais restrito ao local ou rede onde você foi atendido. Qualquer médico cadastrado no SPE terá acesso a seu histórico médico para melhor atende-lo.
-        p
-          a.btn.btn-info.btn-md[href="#" role="button" data-toggle="modal" data-target="#citizenSignUp"]
-            | Cadastre-se »
-    hr
+.jumbotron.container
+  h1.display-3
+    | Seja bem-vindo ao SPE
+  p
+    |  O Sistema de Prontuário Eletrônico, ou SPE, é o sistema nacional que conecta médicos ao histórico médico de cada cidadão. Conheça abaixo os benefícios proporcionados pelo SPE, por perfíl:
+.container
+  .row
+    .col-md-6
+      h2
+        | Médicos
+      p
+        | Possibilidade de conhecer o histórico do paciente com rapidez e agilidade, no momento do antendimento. Não perca tempo e solicite seu cadastro.
+      p
+        a.btn.btn-info.btn-md[href="#" role="button" data-toggle="modal" data-target="#doctorSignUp"]
+          | Cadastre-se »
+    .col-md-6
+      h2
+        | Cidadãos
+      p
+        | Seu histórico médico não fica mais restrito ao local ou rede onde você foi atendido. Qualquer médico cadastrado no SPE terá acesso a seu histórico médico para melhor atende-lo.
+      p
+        a.btn.btn-info.btn-md[href="#" role="button" data-toggle="modal" data-target="#citizenSignUp"]
+          | Cadastre-se »
+  hr
 #doctorSignUp.modal.fade[tabindex="-1" role="dialog" aria-labelledby="doctorSignUpLabel" aria-hidden="true"]
   .modal-dialog[role="document"]
     .modal-content
@@ -33,7 +32,7 @@ main[role="main"]
           span[aria-hidden="true"]
             | ×
       .modal-body
-        |  Você deve ter em mãos seu RG, CPF, comprovante de residência e documentação do CRM que comprove seu registro de médico. Solicite então a um Administrador seu cadastro de médico no Sistema de Prontuário Eletrônico. 
+        |  Você deve ter em mãos seu RG, CPF, comprovante de residência e documentação do CRM que comprove seu registro de médico. Solicite então a um Administrador seu cadastro de médico no Sistema de Prontuário Eletrônico.
       .modal-footer
         button.btn.btn-secondary[type="button" data-dismiss="modal"]
           | Fechar
@@ -47,7 +46,7 @@ main[role="main"]
           span[aria-hidden="true"]
             | ×
       .modal-body
-        |  Você deve ter em mãos seu RG, CPF, comprovante de residência e opcionalmente carteirinha do SUS. Solicite então a um Administrador seu cadastro de cidadão no Sistema de Prontuário Eletrônico. 
+        |  Você deve ter em mãos seu RG, CPF, comprovante de residência e opcionalmente carteirinha do SUS. Solicite então a um Administrador seu cadastro de cidadão no Sistema de Prontuário Eletrônico.
       .modal-footer
         button.btn.btn-secondary[type="button" data-dismiss="modal"]
           | Fechar
