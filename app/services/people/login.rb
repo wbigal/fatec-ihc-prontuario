@@ -9,9 +9,9 @@ module People
 
     def call
       pessoa = Pessoa.find_by!(email: email)
-      pessoa.correct_senha?(password)
+      pessoa if pessoa.correct_senha?(password)
     rescue ActiveRecord::RecordNotFound
-      false
+      nil
     end
   end
 end
