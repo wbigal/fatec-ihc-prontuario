@@ -29,7 +29,7 @@ RSpec.describe Accounts::SessionsController, type: :controller do
 
     context 'when account informations are correct' do
       it { expect(controller.current_pessoa).to eq(pessoa) }
-      it { expect(response).to redirect_to('/inicio') }
+      it { expect(response).to redirect_to('/') }
     end
 
     context 'when account informations are not correct' do
