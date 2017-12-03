@@ -17,5 +17,10 @@ FactoryBot.define do
     cns { Faker::Number.number(16).to_s }
     nome_completo 'Fabio Carille'
     data_nascimento Date.new(1973, 9, 26)
+
+    trait :with_account do
+      email { Faker::Internet.email }
+      senha 'ABC123'
+    end
   end
 end
