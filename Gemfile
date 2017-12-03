@@ -27,6 +27,8 @@ gem 'jbuilder', '~> 2.5'
 gem 'bcrypt', '~> 3.1.7'
 # Bootstrap 4 Ruby Gem for Rails / Sprockets and Compass.
 gem 'bootstrap', '~> 4.0.0.beta2.1'
+# An email validator for Rails
+gem 'email_validator'
 # A Ruby static code analyzer, based on the community Ruby style guide.
 gem 'rubocop', require: false
 

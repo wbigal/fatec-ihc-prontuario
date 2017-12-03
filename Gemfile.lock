@@ -91,6 +91,8 @@ GEM
     dotenv-rails (2.2.1)
       dotenv (= 2.2.1)
       railties (>= 3.2, < 5.2)
+    email_validator (1.6.0)
+      activemodel
     erubi (1.7.0)
     execjs (2.7.0)
     factory_bot (4.8.2)
@@ -273,6 +275,7 @@ DEPENDENCIES
   coffee-rails (~> 4.2)
   database_cleaner
   dotenv-rails
+  email_validator
   factory_bot_rails
   faker!
   jbuilder (~> 2.5)
