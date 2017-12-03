@@ -13,7 +13,7 @@ module FatecIhcProntuario
       Rails.root.join('config', 'locales', '**', '*.{rb,yml}').to_s
     ]
     config.time_zone = 'Brasilia'
-    config.i18n.available_locales = ['pt-BR']
+    config.i18n.available_locales = ['pt-BR', :en]
     config.i18n.default_locale = :'pt-BR'
     I18n.enforce_available_locales = true
   end
