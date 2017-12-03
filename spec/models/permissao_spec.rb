@@ -50,4 +50,24 @@ RSpec.describe Permissao, type: :model do
   describe '#revogado' do
     it { is_expected.to respond_to(:revogado) }
   end
+
+  describe '.actived' do
+    let!(:permissao) { create(:permissao) }
+    let(:medico) { permissao.medico }
+    let(:pessoa) { permissao.pessoa }
+
+    context 'when exists actived permissao' do
+      it { expect(Permissao.actived(pessoa, medico)).to eq([permissao]) }
+    end
+
+    context 'when actived permissao is revogada' do
+      let!(:permissao) { create(:permissao, revogado: true) }
+      it { expect(Permissao.actived(pessoa, medico)).to be_blank }
+    end
+
+    context 'when actived permissao is nao_aceita' do
+      let!(:permissao) { create(:permissao, nao_aceito: true) }
+      it { expect(Permissao.actived(pessoa, medico)).to be_blank }
+    end
+  end
 end
