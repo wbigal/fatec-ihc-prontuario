@@ -4,6 +4,6 @@ class AuthenticatedController < ApplicationController
   protected
 
   def authenticate_pessoa!
-    redirect_to new_accounts_session_path unless pessoa_signed_in?
+    redirect_to new_accounts_sessions_path unless pessoa_signed_in?
   end
 end
