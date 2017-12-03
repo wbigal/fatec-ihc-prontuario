@@ -13,19 +13,37 @@ html[lang="pt-BR"]
     = yield(:stylesheet)
   body
     main
-      nav.navbar.navbar-expand-md.navbar-dark.bg-dark.container
+      nav.navbar.collapse.navbar-dark.bg-dark.container
         a.navbar-brand[href="/"]
           | SPE
         button.navbar-toggler[type="button" data-toggle="collapse" data-target="#navbarsDefault" aria-controls="navbarsDefault" aria-expanded="false" aria-label="Toggle navigation"]
           span.navbar-toggler-icon
         #navbarsDefault.collapse.navbar-collapse
-          ul.navbar-nav.ml-auto
-            li.nav-item
-              a.btn.btn-primary.btn-sm[href="#" role="button"]
-                | Sou Médico
-            li.nav-item
-              a.btn.btn-success.btn-sm[href="#" role="button"]
-                | Sou Admin
+          ul.navbar-nav.ml-auto.text-right
+            - if pessoa_signed_in?
+              li.nav-item
+                | Usuários: #{current_pessoa.nome_completo}
+              li.nav-item
+                | Médico
+              li.nav-item
+                = link_to 'Novo Atendimento', '#', class: 'nav-link'
+              li.nav-item
+                = link_to 'Meus Atendimento', '#', class: 'nav-link'
+              li.nav-item
+                | Paciente
+              li.nav-item
+                = link_to 'Meu Prontuário', '#', class: 'nav-link'
+              li.nav-item
+                = link_to 'Autorizar Médico', '#', class: 'nav-link'
+              li.nav-item
+                = link_to 'Médicos Autorizados', '#', class: 'nav-link'
+              li.nav-item
+                = link_to 'Sair', accounts_sessions_path, method: :delete, class: 'nav-link'
+            - else
+              li.nav-item
+                = link_to 'Login', new_accounts_sessions_path, class: 'nav-link'
+              li.nav-item
+                = link_to 'Criar Conta de Acesso', '#', class: 'nav-link'
 
       - flash.each do |key, value|
         div[class="#{flash_class(key)} alert-dismissible fade show" role="alert"]
