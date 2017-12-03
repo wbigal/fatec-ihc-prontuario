@@ -18,6 +18,11 @@ module Accounts
       end
     end
 
+    def destroy
+      sign_out
+      redirect_to action: :new
+    end
+
     private
 
     def pessoa_params

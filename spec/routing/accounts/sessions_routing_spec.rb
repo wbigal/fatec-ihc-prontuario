@@ -18,4 +18,13 @@ RSpec.describe Accounts::SessionsController, type: :routing do
       )
     end
   end
+
+  describe '#delete' do
+    it do
+      expect(delete: '/contas/sessoes').to route_to(
+        'accounts/sessions#destroy',
+        locale: 'pt-BR'
+      )
+    end
+  end
 end

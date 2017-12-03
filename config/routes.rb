@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   localized do
     namespace :accounts do
-      resources :sessions, only: %i[new create]
+      resource :sessions, only: %i[new create destroy]
     end
   end
 end
