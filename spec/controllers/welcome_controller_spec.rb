@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe WelcomeController, :authenticated, type: :controller do
-  it { is_expected.to be_kind_of(ApplicationController) }
+  it { is_expected.to be_kind_of(AuthenticatedController) }
 
   describe 'GET index' do
     before do
