@@ -11,7 +11,7 @@ module Accounts
 
       if pessoa.present?
         self.current_pessoa = pessoa
-        redirect_to '/inicio'
+        redirect_to '/'
       else
         flash[:error] = 'E-mail ou senha inválidos'
         redirect_to action: :new
