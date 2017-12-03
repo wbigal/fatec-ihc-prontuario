@@ -12,6 +12,8 @@
 class Medico < ApplicationRecord
   belongs_to :pessoa, required: true
 
+  has_many :atendimentos, dependent: :destroy
+
   validates :crm, presence: true,
                   numericality: { only_integer: true, greater_than: 0 }
 end

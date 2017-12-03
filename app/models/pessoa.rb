@@ -16,6 +16,7 @@ class Pessoa < ApplicationRecord
   include BCrypt
 
   has_one :medico, dependent: :destroy
+  has_many :atendimentos, dependent: :destroy
 
   validates :cns, presence: true,
                   length: { is: 16 },
