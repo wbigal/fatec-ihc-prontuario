@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171203010403) do
+ActiveRecord::Schema.define(version: 20171203012527) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,9 +26,7 @@ ActiveRecord::Schema.define(version: 20171203010403) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["medico_id"], name: "index_atendimentos_on_medico_id"
-    t.index ["medico_id"], name: "ux_atendimentos_medico_id", unique: true
     t.index ["pessoa_id"], name: "index_atendimentos_on_pessoa_id"
-    t.index ["pessoa_id"], name: "ux_atendimentos_pessoa_id", unique: true
   end
 
   create_table "medicos", force: :cascade do |t|
@@ -38,6 +36,22 @@ ActiveRecord::Schema.define(version: 20171203010403) do
     t.datetime "updated_at", null: false
     t.index ["pessoa_id"], name: "index_medicos_on_pessoa_id"
     t.index ["pessoa_id"], name: "ux_medicos_pessoa_id", unique: true
+  end
+
+  create_table "permissoes", force: :cascade do |t|
+    t.bigint "pessoa_id", null: false
+    t.bigint "medico_id", null: false
+    t.bigint "atendimento_id"
+    t.datetime "data_limite", null: false
+    t.datetime "data_autorizacao", null: false
+    t.boolean "nao_aceito", default: false, null: false
+    t.boolean "revogado", default: false, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["atendimento_id"], name: "index_permissoes_on_atendimento_id"
+    t.index ["atendimento_id"], name: "ux_permissoes_atendimento_id", unique: true
+    t.index ["medico_id"], name: "index_permissoes_on_medico_id"
+    t.index ["pessoa_id"], name: "index_permissoes_on_pessoa_id"
   end
 
   create_table "pessoas", force: :cascade do |t|
@@ -56,4 +70,7 @@ ActiveRecord::Schema.define(version: 20171203010403) do
   add_foreign_key "atendimentos", "medicos"
   add_foreign_key "atendimentos", "pessoas"
   add_foreign_key "medicos", "pessoas"
+  add_foreign_key "permissoes", "atendimentos"
+  add_foreign_key "permissoes", "medicos"
+  add_foreign_key "permissoes", "pessoas"
 end
