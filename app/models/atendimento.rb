@@ -17,6 +17,7 @@
 class Atendimento < ApplicationRecord
   belongs_to :pessoa, required: true
   belongs_to :medico, required: true
+  has_one :permissao, dependent: :destroy
 
   validates :data_atendimento, presence: true
   validates :sintomas, presence: true

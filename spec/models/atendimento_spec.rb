@@ -31,6 +31,10 @@ RSpec.describe Atendimento, type: :model do
     it { is_expected.to validate_presence_of(:medico).with_message(:required) }
   end
 
+  describe '#permissao' do
+    it { is_expected.to have_one(:permissao) }
+  end
+
   describe '#data_atendimento' do
     it { is_expected.to validate_presence_of(:data_atendimento) }
   end
