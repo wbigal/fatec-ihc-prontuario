@@ -4,9 +4,8 @@
     hr
     em Informe seu e-mail e senha para acessar o sistema.
   section#form-area
-    = simple_form_for(@pessoa, url: accounts_sessions_path, method: :post) do |f|
-      = f.error_notification
-      = f.input :email, required: true, placeholder: 'Seu e-mail para acesso'
-      = f.input :senha, as: :password, required: true, placeholder: 'Senha cadastrada anteriormente'
+    = simple_form_for(@login, url: accounts_sessions_path, method: :post) do |f|
+      = f.input :email, placeholder: 'Seu e-mail para acesso'
+      = f.input :password, placeholder: 'Senha cadastrada anteriormente'
       .text-center
-        = f.submit value: 'Entrar', class: 'btn btn-primary'
+        = f.submit value: 'Entrar', class: 'btn btn-primary', data: { disable_with: '...' }

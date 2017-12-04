@@ -7,7 +7,9 @@ RSpec.describe Accounts::SessionsController, type: :controller do
     end
 
     it { expect(response).to render_template('new') }
-    it { expect(assigns(:pessoa)).to be_a_new(Pessoa) }
+    it do
+      expect(assigns(:login)).to be_instance_of(Accounts::Sessions::LoginForm)
+    end
   end
 
   describe 'GET post' do
@@ -15,7 +17,7 @@ RSpec.describe Accounts::SessionsController, type: :controller do
     let(:correct_password) { 'ABC123' }
     let(:email) { correct_email }
     let(:password) { correct_password }
-    let(:pessoa_params) { Hash[email: email, senha: password] }
+    let(:pessoa_params) { Hash[email: email, password: password] }
     let!(:pessoa) do
       create(:pessoa, email: correct_email, senha: correct_password)
     end
@@ -23,7 +25,7 @@ RSpec.describe Accounts::SessionsController, type: :controller do
     before do
       create(:pessoa, email: Faker::Internet.email, senha: 'password')
       process :create, method: :post, params: {
-        pessoa: pessoa_params,
+        accounts_sessions_login_form: pessoa_params,
         locale: 'pt-BR'
       }
     end

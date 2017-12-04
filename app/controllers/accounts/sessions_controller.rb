@@ -1,20 +1,16 @@
 module Accounts
   class SessionsController < ApplicationController
     def new
-      @pessoa = Pessoa.new
+      @login = Accounts::Sessions::LoginForm.new
     end
 
     def create
-      email = pessoa_params[:email]
-      senha = pessoa_params[:senha]
-      pessoa = People::Login.new(email: email, password: senha).call
+      @login = Accounts::Sessions::LoginForm.new(pessoa_params)
 
-      if pessoa.present?
-        self.current_pessoa = pessoa
-        redirect_to '/'
+      if @login.valid?
+        validate_login
       else
-        flash[:error] = 'E-mail ou senha inválidos'
-        redirect_to action: :new
+        render :new
       end
     end
 
@@ -25,8 +21,21 @@ module Accounts
 
     private
 
+    def validate_login
+      pessoa = People::Login.new(email: @login.email,
+                                 password: @login.password).call
+
+      if pessoa.present?
+        self.current_pessoa = pessoa
+        redirect_to '/'
+      else
+        flash[:error] = 'E-mail ou senha inválidos'
+        redirect_to action: :new
+      end
+    end
+
     def pessoa_params
-      params.require(:pessoa).permit(:email, :senha)
+      params.require(:accounts_sessions_login_form).permit(:email, :password)
     end
   end
 end
