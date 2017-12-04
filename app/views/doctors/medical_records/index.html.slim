@@ -9,24 +9,12 @@
   section#permissions-area
     - if @permissoes.present?
       - @permissoes.each do |permissao|
-        div.pb-2
-          dl.row
-            dt.col-2
-              | CNS
-            dd.col-10
-              = permissao.pessoa.cns
-            dt.col-2
-              | Nome
-            dd.col-10
-              = permissao.pessoa.nome_completo
-          em
-            | Esta autorização é válida até:
-            strong<> = l(permissao.data_limite, format: :custom)
+        = render 'patient_info', permissao: permissao
         .text-center.pb-2
-          = link_to 'Acessar Prontuário', '#', class: 'btn btn-primary'
+          = link_to 'Acessar Prontuário', patient_records_doctors_medical_records_path(permissao_id: permissao), class: 'btn btn-primary'
         .text-center
           = link_to 'Recusar Autorização', '#', class: 'btn btn-danger', method: :delete, data: { confirm: "Tem certeza que deseja recusar a autorização do paciente #{permissao.pessoa.nome_completo}?" }
         hr
     - else
-      p.text-center
+      p.text-center.attention
         | No momento você não possui autorizações ativas.
