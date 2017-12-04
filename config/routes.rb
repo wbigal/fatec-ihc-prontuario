@@ -21,7 +21,7 @@ Rails.application.routes.draw do
         end
       end
       resources :permissions, only: %i[destroy]
-      resources :my_appointments, only: %i[index] do
+      resources :my_appointments, only: %i[index show] do
         collection do
           get :search_result
         end

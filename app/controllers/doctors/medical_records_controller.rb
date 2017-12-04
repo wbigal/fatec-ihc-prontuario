@@ -12,7 +12,9 @@ module Doctors
     end
 
     def patient_records
-      @atendimentos = @permissao.pessoa.atendimentos.joins(medico: :pessoa)
+      @atendimentos = @permissao.pessoa.atendimentos.
+                      joins(medico: :pessoa).
+                      order(data_atendimento: :desc)
     end
 
     def new

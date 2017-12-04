@@ -18,7 +18,7 @@ RSpec.describe Doctors::MyAppointmentsController, :authenticated_doctor,
     end
   end
 
-  describe 'GET index' do
+  describe 'GET search_result' do
     let(:atendimento) { create(:atendimento, medico: current_pessoa_medico) }
     let(:search_params) do
       Hash[
@@ -54,6 +54,36 @@ RSpec.describe Doctors::MyAppointmentsController, :authenticated_doctor,
       it { expect(response).to render_template(:index) }
       it { expect(response.status).to eq(200) }
       it { expect(assigns(:atendimentos)).to be_blank }
+    end
+  end
+
+  describe 'GET show' do
+    let(:atendimento_id) { 0 }
+
+    context 'when atendimento is prenset' do
+      before do
+        process :show, method: :get, params: {
+          locale: 'pt-BR',
+          id: atendimento_id
+        }
+      end
+
+      let!(:atendimento) { create(:atendimento, medico: current_pessoa_medico) }
+      let(:atendimento_id) { atendimento.id }
+      it { expect(response).to render_template(:show) }
+      it { expect(response.status).to eq(200) }
+      it { expect(assigns(:atendimento)).to eq(atendimento) }
+    end
+
+    context 'when atendimento is not prenset' do
+      it do
+        expect do
+          process :show, method: :get, params: {
+            locale: 'pt-BR',
+            id: atendimento_id
+          }
+        end.to raise_error(ActiveRecord::RecordNotFound)
+      end
     end
   end
 end

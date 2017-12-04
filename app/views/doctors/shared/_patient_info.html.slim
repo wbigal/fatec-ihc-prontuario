@@ -1,0 +1,13 @@
+dl.row
+  dt.col-2
+    | CNS
+  dd.col-10
+    = pessoa.cns
+  dt.col-2
+    | Nome
+  dd.col-10
+    = pessoa.nome_completo
+  dt.col-2
+    | Idade
+  dd.col-10
+    | #{pessoa.idade} #{pessoa.idade == 1 ? 'ano' : 'anos'}

@@ -18,4 +18,14 @@ RSpec.describe Doctors::MyAppointmentsController, type: :routing do
       )
     end
   end
+
+  describe '#show' do
+    it do
+      expect(get: '/medicos/meus-atendimentos/1910').to route_to(
+        'doctors/my_appointments#show',
+        locale: 'pt-BR',
+        id: '1910'
+      )
+    end
+  end
 end

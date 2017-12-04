@@ -36,11 +36,11 @@
           - @atendimentos.each do |atendimento|
             tr
               td
-                = link_to l(atendimento.data_atendimento.to_date), '#'
+                = link_to l(atendimento.data_atendimento.to_date), doctors_my_appointment_path(atendimento)
               td
-                = link_to atendimento.pessoa.nome_completo, '#'
+                = link_to atendimento.pessoa.nome_completo, doctors_my_appointment_path(atendimento)
               td
-                = link_to 'Ver', '#', class: 'btn btn-warning btn-sm'
+                = link_to 'Ver', doctors_my_appointment_path(atendimento), class: 'btn btn-warning btn-sm'
     - else
       p.text-center.attention
         | Nenhum atendimento foi encontrado com os critérios de pesquisa informados.

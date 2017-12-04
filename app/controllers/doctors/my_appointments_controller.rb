@@ -14,6 +14,13 @@ module Doctors
       end
     end
 
+    def show
+      @atendimento = Atendimento.joins(:pessoa).find_by!(
+        id: params[:id],
+        medico: current_pessoa.medico
+      )
+    end
+
     private
 
     def search_params
@@ -28,7 +35,7 @@ module Doctors
       query = Atendimento.joins(:pessoa).where(medico: current_pessoa.medico)
       query = query_patient_name(query)
       query = query_dates(query)
-      query
+      query.order(data_atendimento: :desc)
     end
 
     def query_dates(query)

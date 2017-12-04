@@ -1,13 +1,5 @@
 div.pb-2
-  dl.row
-    dt.col-2
-      | CNS
-    dd.col-10
-      = permissao.pessoa.cns
-    dt.col-2
-      | Nome
-    dd.col-10
-      = permissao.pessoa.nome_completo
+  = render 'doctors/shared/patient_info', pessoa: permissao.pessoa
   em
     | Esta autorização é válida até:
     strong<> = l(permissao.data_limite, format: :custom)
