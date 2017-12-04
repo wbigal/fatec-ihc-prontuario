@@ -54,3 +54,16 @@ p.attention {
     border-bottom: 1px solid #DDDDDD;
   }
 }
+
+table {
+  th.date-column {
+    width: 109px;
+  }
+  th.action-column {
+    width: 70px;
+  }
+}
+
+.table td {
+  vertical-align: middle;
+}

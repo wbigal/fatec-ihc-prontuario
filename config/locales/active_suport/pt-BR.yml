@@ -204,4 +204,5 @@ pt-BR:
       long: ! '%d de %B de %Y, %H:%M'
       short: ! '%d de %B, %H:%M'
       custom: ! '%A, %d/%m/%Y, %H:%M'
+      date_time: ! '%d/%m/%Y, %H:%M'
     pm: ''
