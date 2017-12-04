@@ -8,4 +8,7 @@ Rails.application.config.assets.version = '1.0'
 # Add Yarn node_modules folder to the asset load path.
 Rails.application.config.assets.paths << Rails.root.join('node_modules')
 
-Rails.application.config.assets.precompile += %w[welcome.css]
+Rails.application.config.assets.precompile += %w[
+  welcome.coffee welcome.scss
+  patients/permissions.coffee patients/permissions.scss
+]

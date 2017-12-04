@@ -1,0 +1,15 @@
+.container
+  section#title-area
+    h1 Autorizar Médico
+    hr
+    em Informe o CRM do médico que você deseja autorizar acesso ao seu prontuário.
+  section#form-area
+    = form_tag(new_patients_permission_path, method: :get)
+      .form-group.crm.required
+        label.control-label.crm.required[for="crm"]
+          abbr[title="required"]
+            | *
+          |  CRM do Médico
+        input#crm.form-control.string.crm.required[required="required" aria-required="true" placeholder="Número do CRM do Médico" type="text" name="crm"]
+      .text-center
+        input.btn.btn-primary[type="submit" name="commit" value="Pesquisar" data-disable-with="..."]

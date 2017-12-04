@@ -1,0 +1,31 @@
+.container
+  section#title-area
+    h1 Autorizar Médico
+  hr
+  section#doctor-info
+    h2 Dados do Médico
+    dl.row
+      dt.col-2
+        | CRM
+      dd.col-10
+        = @medico.crm
+      dt.col-2
+        | Nome
+      dd.col-10
+        = @medico.pessoa.nome_completo
+  hr
+  section#permission-info
+    h2 Dados da Permissão
+    em
+      | Informe até quando você deseja conceder autorização ao médico para acessar seu prontuário.
+      | A autorização será válida até a data e hora indicada, podendo ser revogada a qualquer momento.
+    = simple_form_for(@permissao, url: patients_permissions_path, method: :post) do |f|
+      = f.input :medico_id, as: :hidden
+      = f.input :data_limite, as: :string, label: 'Data para término da autorização', placeholder: 'Escolha uma data e hora'
+      .text-center
+        = f.submit value: 'Autorizar Médico', class: 'btn btn-primary', data: { disable_with: '...' }
+
+- content_for(:javascript) do
+  = javascript_include_tag 'patients/permissions'
+- content_for(:stylesheet) do
+  = stylesheet_link_tag 'patients/permissions', media: 'all'
