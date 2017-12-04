@@ -25,7 +25,7 @@ class Permissao < ApplicationRecord
   validates :revogado, inclusion: { in: [true, false] }
 
   scope :actived, (lambda do
-    where(nao_aceito: false, revogado: false).
+    where(nao_aceito: false, revogado: false, atendimento: nil).
     where('data_limite >= ?', Time.zone.now)
   end)
 end

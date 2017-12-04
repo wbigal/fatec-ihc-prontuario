@@ -67,5 +67,11 @@ RSpec.describe Permissao, type: :model do
       let!(:permissao) { create(:permissao, nao_aceito: true) }
       it { expect(Permissao.actived).to be_blank }
     end
+
+    context 'when actived permissao has atendimento' do
+      let(:atendimento) { create(:atendimento) }
+      let!(:permissao) { create(:permissao, atendimento: atendimento) }
+      it { expect(Permissao.actived).to be_blank }
+    end
   end
 end
