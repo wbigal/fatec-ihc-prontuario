@@ -43,6 +43,13 @@ class Pessoa < ApplicationRecord
     BCrypt::Password.new(senha) == value
   end
 
+  def idade
+    return nil if data_nascimento.blank?
+    today = Time.zone.now.strftime('%Y%m%d').to_i
+    birthday = data_nascimento.strftime('%Y%m%d').to_i
+    (today - birthday) / 10_000
+  end
+
   private
 
   def validate_email_account

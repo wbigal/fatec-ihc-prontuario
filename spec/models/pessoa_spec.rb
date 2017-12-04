@@ -93,6 +93,18 @@ RSpec.describe Pessoa, type: :model do
     end
   end
 
+  describe '#idade' do
+    context 'when data_nascimento is present' do
+      subject { Pessoa.new(data_nascimento: 35.years.ago) }
+      it { expect(subject.idade).to eq(35) }
+    end
+
+    context 'when data_nascimento is not present' do
+      subject { Pessoa.new(data_nascimento: nil) }
+      it { expect(subject.idade).to be_blank }
+    end
+  end
+
   describe 'setup account' do
     let(:email) { Faker::Internet.email }
     let(:password) { 'ACB1234' }
