@@ -24,8 +24,8 @@ class Permissao < ApplicationRecord
   validates :nao_aceito, inclusion: { in: [true, false] }
   validates :revogado, inclusion: { in: [true, false] }
 
-  scope :actived, (lambda do |pessoa, medico|
-    where(medico: medico, pessoa: pessoa, nao_aceito: false, revogado: false).
+  scope :actived, (lambda do
+    where(nao_aceito: false, revogado: false).
     where('data_limite > ?', Time.zone.now)
   end)
 end

@@ -22,7 +22,8 @@ module Permissions
     private
 
     def exists_valid_permission!
-      return if deadline.blank? || Permissao.actived(patient, doctor).none?
+      return if deadline.blank?
+      return if Permissao.actived.where(pessoa: patient, medico: doctor).none?
       raise AlreadyExistsError,
             'Você já concedeu permissão ao médico neste período.'
     end
