@@ -2,6 +2,7 @@ require 'rails_helper'
 
 RSpec.describe Patients::MyMedicalRecordsController, :authenticated,
                type: :controller do
+  it { is_expected.to be_kind_of(AuthenticatedController) }
 
   describe 'GET index' do
     before do

@@ -1,5 +1,5 @@
 module Patients
-  class MyMedicalRecordsController < ApplicationController
+  class MyMedicalRecordsController < AuthenticatedController
     def index
       @search = Patients::MyMedicalRecords::SearchForm.new
     end
