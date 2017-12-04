@@ -12,6 +12,8 @@ RSpec.describe People::Login, type: :service do
 
   subject { People::Login.new(email: email, password: password) }
 
+  before { create(:pessoa, :with_account) }
+
   context 'when email and password are corrects' do
     it { expect(subject.call).to eq(pessoa) }
   end

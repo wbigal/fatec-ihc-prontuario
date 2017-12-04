@@ -53,8 +53,6 @@ RSpec.describe Permissao, type: :model do
 
   describe '.actived' do
     let!(:permissao) { create(:permissao) }
-    let(:medico) { permissao.medico }
-    let(:pessoa) { permissao.pessoa }
 
     context 'when exists actived permissao' do
       it { expect(Permissao.actived).to eq([permissao]) }

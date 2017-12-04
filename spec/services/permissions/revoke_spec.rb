@@ -8,6 +8,8 @@ RSpec.describe Permissions::Revoke, type: :service do
     Permissions::Revoke.new(patient: pessoa, permission_id: permissao.id)
   end
 
+  before { create(:permissao) }
+
   it { expect(subject.call).to be_truthy }
 
   it do

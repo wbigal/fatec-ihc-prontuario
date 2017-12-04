@@ -4,6 +4,10 @@ RSpec.describe Patients::PermissionsController, :authenticated,
                type: :controller do
   it { is_expected.to be_kind_of(AuthenticatedController) }
 
+  before do
+    create(:permissao)
+  end
+
   describe 'GET index' do
     before do
       process :index, method: :get, params: { locale: 'pt-BR' }

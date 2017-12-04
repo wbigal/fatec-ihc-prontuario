@@ -21,6 +21,7 @@ RSpec.describe Accounts::SessionsController, type: :controller do
     end
 
     before do
+      create(:pessoa, email: Faker::Internet.email, senha: 'password')
       process :create, method: :post, params: {
         pessoa: pessoa_params,
         locale: 'pt-BR'
