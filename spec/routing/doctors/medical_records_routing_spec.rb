@@ -18,4 +18,22 @@ RSpec.describe Doctors::MedicalRecordsController, type: :routing do
       )
     end
   end
+
+  describe '#new' do
+    it do
+      expect(get: '/medicos/registros/novo').to route_to(
+        'doctors/medical_records#new',
+        locale: 'pt-BR'
+      )
+    end
+  end
+
+  describe '#create' do
+    it do
+      expect(post: '/medicos/registros').to route_to(
+        'doctors/medical_records#create',
+        locale: 'pt-BR'
+      )
+    end
+  end
 end

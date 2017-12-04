@@ -15,7 +15,7 @@ Rails.application.routes.draw do
     end
 
     namespace :doctors do
-      resources :medical_records, only: %i[index] do
+      resources :medical_records, only: %i[index new create] do
         collection do
           get :patient_records
         end

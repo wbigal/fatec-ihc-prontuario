@@ -1,0 +1,22 @@
+.container
+  section#title-area
+    h1 Novo Atendimento
+  hr
+
+  section#patient-area
+    h2
+      | Dados do Paciente
+    = render 'patient_info', permissao: @permissao
+  hr
+
+  section#form-area
+    h2
+      | Dados do Atendimento
+
+    = simple_form_for(@atendimento, url: doctors_medical_records_path(permissao_id: @permissao.id), method: :post) do |f|
+      = f.input :sintomas, input_html: { rows: 10 }
+      = f.input :diagnosticos, input_html: { rows: 10 }
+      = f.input :prescricao_medicamentos, input_html: { rows: 10 }
+      = f.input :prescricao_procedimentos, input_html: { rows: 10 }
+      .text-center
+        = f.submit value: 'Gravar Atendimento', class: 'btn btn-primary', data: { disable_with: '...' }

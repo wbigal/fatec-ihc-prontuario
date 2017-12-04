@@ -1,0 +1,15 @@
+pt-BR:
+  activerecord:
+    models:
+      atendimento:
+        one: Atendimento
+        other: Atendimentos
+    attributes:
+      atendimento:
+        pessoa: Paciente
+        medico: Médico
+        data_atendimento: Data de Nascimento
+        sintomas: Sintomas
+        diagnosticos: Diagnósticos
+        prescricao_medicamentos: Prescrição de Medicamentos
+        prescricao_procedimentos: Prescrição de Procedimentos
