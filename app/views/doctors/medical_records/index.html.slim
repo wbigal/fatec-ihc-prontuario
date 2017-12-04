@@ -13,7 +13,7 @@
         .text-center.pb-2
           = link_to 'Acessar Prontuário', patient_records_doctors_medical_records_path(permissao_id: permissao), class: 'btn btn-primary'
         .text-center
-          = link_to 'Recusar Autorização', '#', class: 'btn btn-danger', method: :delete, data: { confirm: "Tem certeza que deseja recusar a autorização do paciente #{permissao.pessoa.nome_completo}?" }
+          = link_to 'Recusar Autorização', doctors_permission_path(permissao), class: 'btn btn-danger', method: :delete, data: { confirm: "Tem certeza que deseja recusar a autorização do paciente #{permissao.pessoa.nome_completo}?" }
         hr
     - else
       p.text-center.attention

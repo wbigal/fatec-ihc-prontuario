@@ -20,6 +20,7 @@ Rails.application.routes.draw do
           get :patient_records
         end
       end
+      resources :permissions, only: %i[destroy]
     end
   end
 end
