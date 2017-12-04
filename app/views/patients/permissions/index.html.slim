@@ -20,7 +20,7 @@
             | Esta autorização é válida até:
             strong<> = l(permissao.data_limite, format: :custom)
         .text-center
-          = link_to 'Revogar Autorização', '#', class: 'btn btn-danger', data: { confirm: "Tem certeza que deseja revogar a autorização ao médico #{permissao.medico.pessoa.nome_completo}?" }
+          = link_to 'Revogar Autorização', patients_permission_path(permissao), class: 'btn btn-danger', method: :delete, data: { confirm: "Tem certeza que deseja revogar a autorização ao médico #{permissao.medico.pessoa.nome_completo}?" }
         hr
     - else
       p.text-center

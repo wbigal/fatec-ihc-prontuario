@@ -81,4 +81,22 @@ RSpec.describe Patients::PermissionsController, :authenticated,
       it { expect(assigns(:permissao)).to be_an_instance_of(Permissao) }
     end
   end
+
+  describe 'DELETE destroy' do
+    let!(:permissao) { create(:permissao, pessoa: current_pessoa) }
+
+    before do
+      process :destroy, method: :delete, params: {
+        locale: 'pt-BR',
+        id: permissao.id
+      }
+    end
+
+    it { expect(response).to redirect_to(action: :index) }
+
+    it do
+      permissao.reload
+      expect(permissao.revogado).to be_truthy
+    end
+  end
 end

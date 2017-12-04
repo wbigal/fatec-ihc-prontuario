@@ -7,7 +7,7 @@ Rails.application.routes.draw do
     end
 
     namespace :patients do
-      resources :permissions, only: %i[index new create] do
+      resources :permissions, only: %i[index new create destroy] do
         collection do
           get :search_doctor
         end

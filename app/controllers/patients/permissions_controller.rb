@@ -32,6 +32,16 @@ module Patients
       end
     end
 
+    def destroy
+      Permissions::Revoke.new(
+        patient: current_pessoa,
+        permission_id: params[:id].try(:to_i)
+      ).call
+
+      flash[:success] = 'Autorização revogada com sucesso'
+      redirect_to action: :index
+    end
+
     private
 
     def create_permissao

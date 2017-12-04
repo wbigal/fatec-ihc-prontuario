@@ -36,4 +36,14 @@ RSpec.describe Patients::PermissionsController, type: :routing do
       )
     end
   end
+
+  describe '#delete' do
+    it do
+      expect(delete: '/pacientes/autorizacoes/1910').to route_to(
+        'patients/permissions#destroy',
+        id: '1910',
+        locale: 'pt-BR'
+      )
+    end
+  end
 end
