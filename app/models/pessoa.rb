@@ -17,6 +17,7 @@ class Pessoa < ApplicationRecord
 
   has_one :medico, dependent: :destroy
   has_many :atendimentos, dependent: :destroy
+  has_many :permissoes, dependent: :destroy, class_name: 'Permissao'
 
   validates :cns, presence: true,
                   length: { is: 16 },

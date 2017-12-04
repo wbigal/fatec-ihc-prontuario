@@ -27,6 +27,10 @@ RSpec.describe Pessoa, type: :model do
     it { is_expected.to have_many(:atendimentos) }
   end
 
+  describe '#permissoes' do
+    it { is_expected.to have_many(:permissoes) }
+  end
+
   describe '#cns' do
     it { is_expected.to validate_presence_of(:cns) }
     it { is_expected.to validate_length_of(:cns).is_equal_to(16) }
