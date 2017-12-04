@@ -1,0 +1,53 @@
+.container
+  section#title-area
+    h1 Meu Prontuário
+  hr
+
+  section#patient-area
+    h2
+      | Dados do Médico
+    dl.row
+      dt.col-2
+        | CRM
+      dd.col-10
+        = @atendimento.medico.crm
+      dt.col-2
+        | Nome
+      dd.col-10
+        = @atendimento.medico.pessoa.nome_completo
+
+  hr
+
+  section#appointment-area
+    h2
+      | Detalhes do Atendimento
+    .mb-2
+      .medical-records.col-12
+        dl.title.row.pt-2.mb-2
+          dt.col-2
+            | Data:
+          dd.col-10
+            = l(@atendimento.data_atendimento, format: :long)
+        dl.records.row
+          dt.col-12
+            | Sintomas Apresentados:
+          dd.col-12
+            = simple_format(@atendimento.sintomas)
+          dt.col-12
+            | Diagnóstico:
+          dd.col-12
+            = simple_format(@atendimento.diagnosticos)
+          dt.col-12
+            | Prescrição de Medicamentos:
+          dd.col-12
+            = simple_format(@atendimento.prescricao_medicamentos)
+          dt.col-12
+            | Prescrição de Procedimentos:
+          dd.col-12
+            = simple_format(@atendimento.prescricao_procedimentos)
+  hr
+
+  section#actions-area
+    .row
+      .col-12.text-center
+        = link_to 'Voltar Para a Pesquisa', :back, class: 'btn btn-secondary'

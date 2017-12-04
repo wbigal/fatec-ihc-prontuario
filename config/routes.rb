@@ -12,6 +12,11 @@ Rails.application.routes.draw do
           get :search_doctor
         end
       end
+      resources :my_medical_records, only: %i[index show] do
+        collection do
+          get :search_result
+        end
+      end
     end
 
     namespace :doctors do

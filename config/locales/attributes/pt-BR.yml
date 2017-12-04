@@ -3,3 +3,4 @@ pt-BR:
     patient_name: Nome do Paciente
     initial_date: Data Inicial
     final_date: Data Final
+    doctor_name: Nome do Médico

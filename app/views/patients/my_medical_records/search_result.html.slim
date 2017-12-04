@@ -1,0 +1,51 @@
+.container
+  section#title-area
+    h1 Meu Prontuário
+  hr
+
+  section#search-params-area
+    h2 Critérios de Pesquisa
+    div.pb-2
+      dl.row
+        dt.col-4
+          | Data Inicial
+        dd.col-8
+          = l(@search.initial_date, format: :date_time)
+        dt.col-4
+          | Data Final
+        dd.col-8
+          = l(@search.final_date, format: :date_time)
+        - if @search.doctor_name.present?
+          dt.col-4
+            | Médico
+          dd.col-8
+            = @search.doctor_name
+  hr
+
+  section#appointments-area
+    h2 Atendimentos Encontrados (#{@atendimentos.count}):
+
+    - if @atendimentos.present?
+      table.table.table-striped
+        thead.thead-default
+          tr
+            th.date-column Data
+            th Médico
+            th.action-column
+        tbody
+          - @atendimentos.each do |atendimento|
+            tr
+              td
+                = link_to l(atendimento.data_atendimento.to_date), patients_my_medical_record_path(atendimento)
+              td
+                = link_to atendimento.medico.pessoa.nome_completo, patients_my_medical_record_path(atendimento)
+              td
+                = link_to 'Ver', patients_my_medical_record_path(atendimento), class: 'btn btn-warning btn-sm'
+    - else
+      p.text-center.attention
+        | Nenhum atendimento foi encontrado com os critérios de pesquisa informados.
+  hr
+
+  section#actions-buttons-area
+    .text-center
+      = link_to 'Nova Pesquisa', patients_my_medical_records_path, class: 'btn btn-secondary'

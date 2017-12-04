@@ -12,4 +12,5 @@ Rails.application.config.assets.precompile += %w[
   welcome.coffee welcome.scss
   patients/permissions.coffee patients/permissions.scss
   doctors/my_appointments.coffee doctors/my_appointments.scss
+  patients/my_medical_records.coffee patients/my_medical_records.scss
 ]
