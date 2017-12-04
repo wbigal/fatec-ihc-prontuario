@@ -1,6 +1,15 @@
 require 'rails_helper'
 
 RSpec.describe Patients::PermissionsController, type: :routing do
+  describe '#index' do
+    it do
+      expect(get: '/pacientes/autorizacoes').to route_to(
+        'patients/permissions#index',
+        locale: 'pt-BR'
+      )
+    end
+  end
+
   describe '#search_doctor' do
     it do
       expect(get: '/pacientes/autorizacoes/pesquisar-medico').to route_to(

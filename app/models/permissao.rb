@@ -26,6 +26,6 @@ class Permissao < ApplicationRecord
 
   scope :actived, (lambda do
     where(nao_aceito: false, revogado: false).
-    where('data_limite > ?', Time.zone.now)
+    where('data_limite >= ?', Time.zone.now)
   end)
 end

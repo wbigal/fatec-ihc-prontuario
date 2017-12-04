@@ -3,6 +3,13 @@ module Patients
     rescue_from 'Permissions::AlreadyExistsError',
                 with: :permissions_already_exists_handler
 
+    def index
+      @permissoes = current_pessoa.permissoes.
+                    includes(medico: :pessoa).
+                    joins(medico: :pessoa).
+                    actived
+    end
+
     def search_doctor; end
 
     def new
@@ -19,7 +26,7 @@ module Patients
 
       if @permissao.persisted?
         flash[:success] = 'O médico recebeu a autorização com sucesso'
-        redirect_to action: :search_doctor
+        redirect_to action: :index
       else
         render :new
       end

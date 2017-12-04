@@ -1,0 +1,29 @@
+.container
+  section#title-area
+    h1 Médicos Autorizados
+  hr
+
+  section#permissions-area
+    - if @permissoes.present?
+      - @permissoes.each do |permissao|
+        div.pb-2
+          dl.row
+            dt.col-2
+              | CRM
+            dd.col-10
+              = permissao.medico.crm
+            dt.col-2
+              | Nome
+            dd.col-10
+              = permissao.medico.pessoa.nome_completo
+          em
+            | Esta autorização é válida até:
+            strong<> = l(permissao.data_limite, format: :custom)
+        .text-center
+          = link_to 'Revogar Autorização', '#', class: 'btn btn-danger', data: { confirm: "Tem certeza que deseja revogar a autorização ao médico #{permissao.medico.pessoa.nome_completo}?" }
+        hr
+    - else
+      p.text-center
+        | No momento você não possui autorizações ativas. Para autorizar um médico clique no botão abaixo:
+      .text-center
+        = link_to 'Autorizar Médico', search_doctor_patients_permissions_path, class: 'btn btn-primary'

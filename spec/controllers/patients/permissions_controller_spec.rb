@@ -4,6 +4,25 @@ RSpec.describe Patients::PermissionsController, :authenticated,
                type: :controller do
   it { is_expected.to be_kind_of(AuthenticatedController) }
 
+  describe 'GET index' do
+    before do
+      process :index, method: :get, params: { locale: 'pt-BR' }
+    end
+
+    context 'when exists permissoes' do
+      let!(:permissao) { create(:permissao, pessoa: current_pessoa) }
+      it { expect(response).to render_template(:index) }
+      it { expect(response.status).to eq(200) }
+      it { expect(assigns(:permissoes)).to eq([permissao]) }
+    end
+
+    context 'when not exists permissoes' do
+      it { expect(response).to render_template(:index) }
+      it { expect(response.status).to eq(200) }
+      it { expect(assigns(:permissoes)).to eq([]) }
+    end
+  end
+
   describe 'GET search_doctor' do
     before do
       process :search_doctor, method: :get, params: { locale: 'pt-BR' }
@@ -50,7 +69,7 @@ RSpec.describe Patients::PermissionsController, :authenticated,
     end
 
     context 'when permissao_params are valid' do
-      it { expect(response).to redirect_to(action: :search_doctor) }
+      it { expect(response).to redirect_to(action: :index) }
     end
 
     context 'when permissao_params are not valid' do
