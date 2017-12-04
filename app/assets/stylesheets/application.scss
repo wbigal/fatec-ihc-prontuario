@@ -21,7 +21,7 @@ footer {
 
 label {
   abbr {
-    color: #FF0000;
+    color: $error_color;
   }
 }
 
@@ -31,8 +31,17 @@ h1, .h1 {
 
 h2, .h2 {
   font-size: 1.5rem;
+  font-style: italic;
 }
 
 dl {
   margin-bottom: 0;
+}
+
+.ml-20 {
+  margin-left: 20px;
+}
+
+p.attention {
+  color: $error_color;
 }
