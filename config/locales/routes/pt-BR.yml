@@ -12,3 +12,5 @@ pt-BR:
     patients: pacientes
     permissions: autorizacoes
     search_doctor: pesquisar-medico
+    doctors: medicos
+    medical_records: registros

@@ -13,5 +13,9 @@ Rails.application.routes.draw do
         end
       end
     end
+
+    namespace :doctors do
+      resources :medical_records, only: %i[index]
+    end
   end
 end

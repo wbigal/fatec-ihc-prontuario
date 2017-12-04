@@ -4,9 +4,9 @@ module Doctors
 
     def authenticate_pessoa!
       super
-      return if pessoa.medico.present?
+      return if current_pessoa.medico.present?
       flash[:alert] = 'Você não pode acessar a página solicitada'
-      redirect_to root_path, status: :unauthorized
+      redirect_to root_path
     end
   end
 end
