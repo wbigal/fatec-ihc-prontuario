@@ -20,6 +20,10 @@ RSpec.describe Medico, type: :model do
     it { is_expected.to have_many(:atendimentos) }
   end
 
+  describe '#permissoes' do
+    it { is_expected.to have_many(:permissoes) }
+  end
+
   describe '#pessoa' do
     it { is_expected.to belong_to(:pessoa) }
     it { is_expected.to validate_presence_of(:pessoa).with_message(:required) }

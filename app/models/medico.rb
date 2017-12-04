@@ -13,6 +13,7 @@ class Medico < ApplicationRecord
   belongs_to :pessoa, required: true
 
   has_many :atendimentos, dependent: :destroy
+  has_many :permissoes, dependent: :destroy, class_name: 'Permissao'
 
   validates :crm, presence: true,
                   numericality: { only_integer: true, greater_than: 0 }
