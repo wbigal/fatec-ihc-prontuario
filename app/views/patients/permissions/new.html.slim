@@ -21,13 +21,8 @@
       | A autorização será válida até a data e hora indicada, podendo ser revogada a qualquer momento.
     = simple_form_for(@permissao, url: patients_permissions_path, method: :post) do |f|
       = f.input :medico_id, as: :hidden
-      = f.input :data_limite, as: :string, label: 'Data para término da autorização', placeholder: 'Escolha uma data e hora'
+      = f.input :data_limite, input_html: { type: 'datetime-local' }, label: 'Data para término da autorização', placeholder: 'Escolha uma data e hora'
       .text-center
         p.required-hint
           | O campo marcado com * precisa ser preenchido
         = f.submit value: 'Autorizar Médico', class: 'btn btn-primary', data: { disable_with: '...' }
-
-- content_for(:javascript) do
-  = javascript_include_tag 'patients/permissions'
-- content_for(:stylesheet) do
-  = stylesheet_link_tag 'patients/permissions', media: 'all'
