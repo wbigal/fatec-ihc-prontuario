@@ -11,6 +11,8 @@
     = f.input :final_date, placeholder: 'Data final para pesquisa'
     = f.input :patient_name, placeholder: 'Nome do paciente'
     .text-center
+      p.required-hint
+        | Os campos marcados com * precisam ser preenchidos
       = f.submit value: 'Pesquisar', class: 'btn btn-primary', data: { disable_with: '...' }
 
 - content_for(:javascript) do

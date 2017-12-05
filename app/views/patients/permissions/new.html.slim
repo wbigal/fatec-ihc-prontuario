@@ -23,6 +23,8 @@
       = f.input :medico_id, as: :hidden
       = f.input :data_limite, as: :string, label: 'Data para término da autorização', placeholder: 'Escolha uma data e hora'
       .text-center
+        p.required-hint
+          | O campo marcado com * precisa ser preenchido
         = f.submit value: 'Autorizar Médico', class: 'btn btn-primary', data: { disable_with: '...' }
 
 - content_for(:javascript) do

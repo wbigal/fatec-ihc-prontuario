@@ -93,3 +93,8 @@ p.help-block {
 .nav-item.title-item {
   font-size: 0.9rem;
 }
+
+p.required-hint {
+  color: $error_color;
+  font-size: 0.85rem;
+}

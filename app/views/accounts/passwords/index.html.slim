@@ -9,4 +9,6 @@
     = simple_form_for(@remember, url: remember_accounts_passwords_path, method: :get) do |f|
       = f.input :email, placeholder: 'Seu e-mail de acesso'
       .text-center
+        p.required-hint
+          | O campo marcado com * precisa ser preenchido
         = f.submit value: 'Recuperar Senha', class: 'btn btn-primary', data: { disable_with: '...' }

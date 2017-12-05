@@ -19,4 +19,6 @@
       = f.input :prescricao_medicamentos, input_html: { rows: 10 }
       = f.input :prescricao_procedimentos, input_html: { rows: 10 }
       .text-center
+        p.required-hint
+          | Os campos marcados com * precisam ser preenchidos
         = f.submit value: 'Gravar Atendimento', class: 'btn btn-primary', data: { disable_with: '...' }

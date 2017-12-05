@@ -9,4 +9,6 @@
     = simple_form_for(@registration, url: new_accounts_registration_path, method: :get) do |f|
       = f.input :cns, placeholder: 'Número do seu CNS'
       .text-center
+        p.required-hint
+          | O campo marcado com * precisa ser preenchido
         = f.submit value: 'Próximo', class: 'btn btn-primary', data: { disable_with: '...' }

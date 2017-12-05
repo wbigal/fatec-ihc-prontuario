@@ -12,4 +12,6 @@
       = f.input :password, as: :password, placeholder: 'Sua senha para acesso', hint: 'Deve ter de 6 à 10 caracteres'
       = f.input :password_confirmation, as: :password, placeholder: 'Confirme a senha digitada'
       .text-center
+        p.required-hint
+          | Os campos marcados com * precisam ser preenchidos
         = f.submit value: 'Criar Conta', class: 'btn btn-primary', data: { disable_with: '...' }

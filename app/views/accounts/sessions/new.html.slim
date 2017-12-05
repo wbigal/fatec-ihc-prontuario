@@ -9,6 +9,8 @@
       = f.input :email, placeholder: 'Seu e-mail para acesso'
       = f.input :password, placeholder: 'Senha cadastrada anteriormente'
       .text-center
+        p.required-hint
+          | Os campos marcados com * precisam ser preenchidos
         = f.submit value: 'Entrar', class: 'btn btn-primary', data: { disable_with: '...' }
   hr
 
