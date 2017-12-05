@@ -1,0 +1,12 @@
+.container
+  section#title-area
+    h1 Esqueci Minha Senha
+    em
+      | Informe o e-mail que você utilizou para criar sua conta de acesso.
+  hr
+
+  section#form-area
+    = simple_form_for(@remember, url: remember_accounts_passwords_path, method: :get) do |f|
+      = f.input :email, placeholder: 'Seu e-mail de acesso'
+      .text-center
+        = f.submit value: 'Recuperar Senha', class: 'btn btn-primary', data: { disable_with: '...' }

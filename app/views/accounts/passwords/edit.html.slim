@@ -1,0 +1,13 @@
+.container
+  section#title-area
+    h1 Cadastrar Nova Senha
+    em
+      | Informe uma nova senha de acesso.
+  hr
+
+  section#form-area
+    = simple_form_for(@create_password, url: accounts_password_path(id: params[:id]), method: :put) do |f|
+      = f.input :password, as: :password, placeholder: 'Sua senha para acesso', hint: 'Deve ter de 6 à 10 caracteres'
+      = f.input :password_confirmation, as: :password, placeholder: 'Confirme a senha digitada'
+      .text-center
+        = f.submit value: 'Cadastrar Senha', class: 'btn btn-primary', data: { disable_with: '...' }
