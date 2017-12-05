@@ -23,12 +23,13 @@ html[lang="pt-BR"]
             - if pessoa_signed_in?
               li.nav-item
                 | Usuários: #{current_pessoa.nome_completo}
-              li.nav-item
-                | Médico
-              li.nav-item
-                = link_to 'Novo Atendimento', doctors_medical_records_path, class: 'nav-link'
-              li.nav-item
-                = link_to 'Meus Atendimento', doctors_my_appointments_path, class: 'nav-link'
+              - if medico_signed_in?
+                li.nav-item
+                  | Médico
+                li.nav-item
+                  = link_to 'Novo Atendimento', doctors_medical_records_path, class: 'nav-link'
+                li.nav-item
+                  = link_to 'Meus Atendimento', doctors_my_appointments_path, class: 'nav-link'
               li.nav-item
                 | Paciente
               li.nav-item
@@ -53,6 +54,7 @@ html[lang="pt-BR"]
               | ×
       = yield
       footer.container
+        hr
         p
           | © Sistema de Prontuário Eletrônico - SPE
           = Date.today.year
