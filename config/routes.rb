@@ -5,6 +5,11 @@ Rails.application.routes.draw do
     namespace :accounts do
       resource :sessions, only: %i[new create destroy]
       resources :registrations, only: %i[index new create]
+      resources :passwords, only: %i[index edit update] do
+        collection do
+          get :remember
+        end
+      end
     end
 
     namespace :patients do
