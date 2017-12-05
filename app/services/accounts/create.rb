@@ -1,4 +1,5 @@
 module Accounts
+  class RecordInvalid < StandardError; end
   class Create
     attr_reader :cns, :email, :password
 
@@ -12,7 +13,10 @@ module Accounts
       pessoa = GetWithoutAccount.new(cns: cns).call
       pessoa.email = email
       pessoa.senha = password
-      pessoa.save
+      pessoa.save!
+      true
+    rescue ActiveRecord::RecordInvalid => e
+      raise RecordInvalid, e.message
     end
   end
 end

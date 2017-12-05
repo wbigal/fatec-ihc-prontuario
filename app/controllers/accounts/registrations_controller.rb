@@ -40,6 +40,9 @@ module Accounts
         email: account_params[:email],
         password: account_params[:password]
       ).call
+    rescue Accounts::RecordInvalid => e
+      flash[:error] = e
+      false
     end
 
     def account_error_handler(exception)
