@@ -67,3 +67,21 @@ table {
 .table td {
   vertical-align: middle;
 }
+
+.help-block {
+  font-size: 0.9rem;
+  font-style: italic;
+}
+
+p.help-block {
+  color: #99979c;
+}
+
+.has-error {
+  span.help-block {
+    color: $error_color;
+  }
+  .form-control {
+    border: 1px solid $error_color;
+  }
+}
