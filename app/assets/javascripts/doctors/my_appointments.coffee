@@ -4,6 +4,10 @@
 
 #= require plugins/jquery.datetimepicker
 
-$('#doctors_my_appointments_search_form_initial_date').datetimepicker()
-$('#doctors_my_appointments_search_form_final_date').datetimepicker()
+$('#doctors_my_appointments_search_form_initial_date').datetimepicker(
+  format:'d/m/Y H:m'
+)
+$('#doctors_my_appointments_search_form_final_date').datetimepicker(
+  format:'d/m/Y H:m'
+)
 $.datetimepicker.setLocale 'pt-BR'

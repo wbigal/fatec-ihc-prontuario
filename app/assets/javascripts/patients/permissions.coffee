@@ -4,5 +4,7 @@
 
 #= require plugins/jquery.datetimepicker
 
-$('#permissao_data_limite').datetimepicker()
+$('#permissao_data_limite').datetimepicker(
+  format:'d/m/Y H:m'
+)
 $.datetimepicker.setLocale 'pt-BR'
