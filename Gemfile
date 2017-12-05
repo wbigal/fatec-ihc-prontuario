@@ -86,6 +86,9 @@ group :test do
   gem 'rails-controller-testing'
   # CodeClimate Test Integration
   gem 'codeclimate-test-reporter', require: nil
+  # A gem providing "time travel", "time freezing", and "time acceleration"
+  # capabilities, making it simple to test time-dependent code.
+  gem 'timecop'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
