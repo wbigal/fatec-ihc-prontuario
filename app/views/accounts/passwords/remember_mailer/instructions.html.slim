@@ -1,0 +1,14 @@
+h1 Instruções para criar uma nova senha
+
+p
+  | Olá #{@pessoa.nome_completo},
+
+p
+  | Você solicitou instruções para criar uma nova senha. Se não foi você desconsidere este e-mail.
+
+p
+  | Para criar uma nova senha basta acessar a seguinte URL:
+  = link_to @remember_link, @remember_link
+
+p
+  | Equipe SPE
