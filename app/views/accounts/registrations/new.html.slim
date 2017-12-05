@@ -1,0 +1,15 @@
+.container
+  section#title-area
+    h1 Criar Conta de Acesso
+    em
+      | Informe o código do seu CNS para relacionar sua conta de acesso ao seu cadastro.
+  hr
+
+  section#form-area
+    = simple_form_for(@account, url: accounts_registrations_path, method: :post) do |f|
+      = f.input :cns, readonly: true
+      = f.input :email, required: true, placeholder: 'Seu e-mail para acesso'
+      = f.input :password, as: :password, placeholder: 'Sua senha para acesso', hint: 'Deve ter de 6 à 10 caracteres'
+      = f.input :password_confirmation, as: :password, placeholder: 'Confirme a senha digitada'
+      .text-center
+        = f.submit value: 'Criar Conta', class: 'btn btn-primary', data: { disable_with: '...' }

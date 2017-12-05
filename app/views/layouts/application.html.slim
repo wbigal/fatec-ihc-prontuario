@@ -43,7 +43,7 @@ html[lang="pt-BR"]
               li.nav-item
                 = link_to 'Login', new_accounts_sessions_path, class: 'nav-link'
               li.nav-item
-                = link_to 'Criar Conta de Acesso', '#', class: 'nav-link'
+                = link_to 'Criar Conta de Acesso', accounts_registrations_path, class: 'nav-link'
 
       - flash.each do |key, value|
         div[class="#{flash_class(key)} alert-dismissible fade show" role="alert"]

@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   localized do
     namespace :accounts do
       resource :sessions, only: %i[new create destroy]
+      resources :registrations, only: %i[index new create]
     end
 
     namespace :patients do

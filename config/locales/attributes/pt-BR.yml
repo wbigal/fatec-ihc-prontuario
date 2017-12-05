@@ -6,3 +6,5 @@ pt-BR:
     doctor_name: Nome do Médico
     email: E-mail
     password: Senha
+    cns: CNS
+    password_confirmation: Confirmação da Senha

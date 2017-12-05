@@ -1,11 +1,19 @@
 .container
   section#title-area
     h1 Login
-    hr
     em Informe seu e-mail e senha para acessar o sistema.
+  hr
+
   section#form-area
     = simple_form_for(@login, url: accounts_sessions_path, method: :post) do |f|
       = f.input :email, placeholder: 'Seu e-mail para acesso'
       = f.input :password, placeholder: 'Senha cadastrada anteriormente'
       .text-center
         = f.submit value: 'Entrar', class: 'btn btn-primary', data: { disable_with: '...' }
+  hr
+
+  section#action-area
+    p
+      | Ainda não possui conta de acesso?
+      br
+      = link_to 'Clique aqui para cadastrar uma conta', accounts_registrations_path
