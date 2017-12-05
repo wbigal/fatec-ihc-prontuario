@@ -1,7 +1,7 @@
 module Patients
   class PermissionsController < AuthenticatedController
-    rescue_from 'Permissions::AlreadyExistsError',
-                with: :permissions_already_exists_handler
+    rescue_from 'Permissions::AlreadyExistsError', with: :error_handler
+    rescue_from 'Permissions::SelfPermissionNotAllowed', with: :error_handler
 
     def index
       @permissoes = current_pessoa.permissoes.
@@ -56,7 +56,7 @@ module Patients
       params.require(:permissao).permit(:data_limite, :medico_id)
     end
 
-    def permissions_already_exists_handler(exception)
+    def error_handler(exception)
       flash[:error] = exception.message
       redirect_to action: :search_doctor
     end

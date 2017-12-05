@@ -37,4 +37,19 @@ RSpec.describe Permissions::Create, type: :service do
       expect { subject.call }.to raise_error(Permissions::AlreadyExistsError)
     end
   end
+
+  context 'when patient is the medico' do
+    let(:medico) { create(:medico) }
+    let(:pessoa) { medico.pessoa }
+
+    it do
+      expect { subject.call rescue nil }.not_to change(Permissao, :count)
+    end
+
+    it do
+      expect { subject.call }.to raise_error(
+        Permissions::SelfPermissionNotAllowed
+      )
+    end
+  end
 end
