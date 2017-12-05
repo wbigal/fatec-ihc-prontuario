@@ -50,6 +50,10 @@ class Pessoa < ApplicationRecord
     (today - birthday) / 10_000
   end
 
+  def account?
+    email.present? && senha.present?
+  end
+
   private
 
   def validate_email_account

@@ -105,6 +105,23 @@ RSpec.describe Pessoa, type: :model do
     end
   end
 
+  describe '#account?' do
+    context 'when pessoa has email and senha' do
+      subject { Pessoa.new(email: Faker::Internet.email, senha: 'ACB123') }
+      it { expect(subject.account?).to be_truthy }
+    end
+
+    context 'when pessoa has not email' do
+      subject { Pessoa.new(senha: 'ACB123') }
+      it { expect(subject.account?).to be_falsy }
+    end
+
+    context 'when pessoa has not senha' do
+      subject { Pessoa.new(email: Faker::Internet.email) }
+      it { expect(subject.account?).to be_falsy }
+    end
+  end
+
   describe 'setup account' do
     let(:email) { Faker::Internet.email }
     let(:password) { 'ACB1234' }
