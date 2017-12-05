@@ -27,6 +27,11 @@ RSpec.describe Medico, type: :model do
   describe '#pessoa' do
     it { is_expected.to belong_to(:pessoa) }
     it { is_expected.to validate_presence_of(:pessoa).with_message(:required) }
+
+    it do
+      create(:medico)
+      is_expected.to validate_uniqueness_of(:pessoa)
+    end
   end
 
   describe '#crm' do
@@ -35,6 +40,11 @@ RSpec.describe Medico, type: :model do
       is_expected.to validate_numericality_of(:crm).
         only_integer.
         is_greater_than(0)
+    end
+
+    it do
+      create(:medico)
+      is_expected.to validate_uniqueness_of(:crm)
     end
   end
 end

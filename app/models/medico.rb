@@ -16,5 +16,8 @@ class Medico < ApplicationRecord
   has_many :permissoes, dependent: :destroy, class_name: 'Permissao'
 
   validates :crm, presence: true,
-                  numericality: { only_integer: true, greater_than: 0 }
+                  numericality: { only_integer: true, greater_than: 0 },
+                  uniqueness: true
+
+  validates :pessoa, presence: true, uniqueness: true
 end
