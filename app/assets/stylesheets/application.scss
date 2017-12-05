@@ -85,3 +85,11 @@ p.help-block {
     border: 1px solid $error_color;
   }
 }
+
+.nav-item.user-name, .nav-item.title-item {
+  color: #DDDDDD;
+}
+
+.nav-item.title-item {
+  font-size: 0.9rem;
+}

@@ -21,24 +21,25 @@ html[lang="pt-BR"]
         #navbarsDefault.collapse.navbar-collapse
           ul.navbar-nav.ml-auto.text-right
             - if pessoa_signed_in?
-              li.nav-item
-                | Usuários: #{current_pessoa.nome_completo}
+              li.nav-item.user-name.mt-3
+                small Usuário:
+                |  #{current_pessoa.nome_completo}
               - if medico_signed_in?
-                li.nav-item
-                  | Médico
+                li.nav-item.title-item.mt-3
+                  | Para Médicos
                 li.nav-item
                   = link_to 'Novo Atendimento', doctors_medical_records_path, class: 'nav-link'
                 li.nav-item
                   = link_to 'Meus Atendimento', doctors_my_appointments_path, class: 'nav-link'
-              li.nav-item
-                | Paciente
+              li.nav-item.title-item.mt-3
+                | Para Pacientes
               li.nav-item
                 = link_to 'Meu Prontuário', patients_my_medical_records_path, class: 'nav-link'
               li.nav-item
                 = link_to 'Autorizar Médico', search_doctor_patients_permissions_path, class: 'nav-link'
               li.nav-item
                 = link_to 'Médicos Autorizados', patients_permissions_path, class: 'nav-link'
-              li.nav-item
+              li.nav-item.mt-3
                 = link_to 'Sair', accounts_sessions_path, method: :delete, class: 'nav-link'
             - else
               li.nav-item
