@@ -99,7 +99,14 @@ RSpec.describe Doctors::MedicalRecordsController, :authenticated_doctor,
     end
 
     context 'when atendimento_params are valid' do
-      it { expect(response).to redirect_to(action: :index) }
+      it do
+        expect(response).to redirect_to(
+          controller: 'doctors/my_appointments',
+          action: :show,
+          id: Atendimento.last.id,
+          back_to: '/medicos/meus-atendimentos'
+        )
+      end
       it { expect(flash[:error]).to be_blank }
     end
 

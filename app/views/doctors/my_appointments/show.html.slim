@@ -41,4 +41,7 @@
   section#actions-area
     .row
       .col-12.text-center
-        = link_to 'Voltar Para a Pesquisa', :back, class: 'btn btn-secondary'
+        - if params[:back_to] == doctors_my_appointments_path
+          = link_to 'Ir Para Meus Atendimentos', doctors_my_appointments_path, class: 'btn btn-secondary'
+        - else
+          = link_to 'Voltar Para a Pesquisa', :back, class: 'btn btn-secondary'

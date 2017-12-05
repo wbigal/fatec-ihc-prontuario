@@ -26,7 +26,10 @@ module Doctors
 
       if @atendimento.persisted?
         flash[:success] = 'Atendimento registrado com sucesso'
-        redirect_to action: :index
+        redirect_to doctors_my_appointment_path(
+          @atendimento,
+          back_to: doctors_my_appointments_path
+        )
       else
         render :new
       end
