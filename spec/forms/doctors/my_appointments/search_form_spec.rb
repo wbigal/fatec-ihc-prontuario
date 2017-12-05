@@ -13,8 +13,8 @@ RSpec.describe Doctors::MyAppointments::SearchForm, type: :form do
     context 'when the final date is less than the initial date' do
       subject do
         Doctors::MyAppointments::SearchForm.new(
-          initial_date: Time.zone.now,
-          final_date: 1.day.ago
+          initial_date: Time.zone.now.to_s,
+          final_date: 1.day.ago.to_s
         )
       end
 
@@ -24,8 +24,8 @@ RSpec.describe Doctors::MyAppointments::SearchForm, type: :form do
     context 'when the final date is bigger than the initial date' do
       subject do
         Doctors::MyAppointments::SearchForm.new(
-          initial_date: 1.day.ago,
-          final_date: Time.zone.now
+          initial_date: 1.day.ago.to_s,
+          final_date: Time.zone.now.to_s
         )
       end
 
@@ -34,7 +34,7 @@ RSpec.describe Doctors::MyAppointments::SearchForm, type: :form do
 
     context 'when the final date is equal than the initial date' do
       subject do
-        time = Time.zone.now
+        time = Time.zone.now.to_s
         Doctors::MyAppointments::SearchForm.new(
           initial_date: time,
           final_date: time

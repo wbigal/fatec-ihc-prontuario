@@ -13,8 +13,8 @@ RSpec.describe Patients::MyMedicalRecords::SearchForm, type: :form do
     context 'when the final date is less than the initial date' do
       subject do
         Patients::MyMedicalRecords::SearchForm.new(
-          initial_date: Time.zone.now,
-          final_date: 1.day.ago
+          initial_date: Time.zone.now.to_s,
+          final_date: 1.day.ago.to_s
         )
       end
 
@@ -24,8 +24,8 @@ RSpec.describe Patients::MyMedicalRecords::SearchForm, type: :form do
     context 'when the final date is bigger than the initial date' do
       subject do
         Patients::MyMedicalRecords::SearchForm.new(
-          initial_date: 1.day.ago,
-          final_date: Time.zone.now
+          initial_date: 1.day.ago.to_s,
+          final_date: Time.zone.now.to_s
         )
       end
 
@@ -36,8 +36,8 @@ RSpec.describe Patients::MyMedicalRecords::SearchForm, type: :form do
       subject do
         time = Time.zone.now
         Patients::MyMedicalRecords::SearchForm.new(
-          initial_date: time,
-          final_date: time
+          initial_date: time.to_s,
+          final_date: time.to_s
         )
       end
 

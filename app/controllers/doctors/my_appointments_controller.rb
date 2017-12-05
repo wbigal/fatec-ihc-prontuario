@@ -40,7 +40,7 @@ module Doctors
 
     def query_dates(query)
       query.where(
-        data_atendimento: @search.initial_date...@search.final_date
+        data_atendimento: @search.initial_date..@search.final_date
       )
     end
 

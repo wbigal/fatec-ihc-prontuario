@@ -9,11 +9,11 @@ module Patients
       validate :dates_rage
 
       def initial_date
-        @initial_date&.to_datetime
+        Time.zone.parse(@initial_date) if @initial_date.present?
       end
 
       def final_date
-        @final_date&.to_datetime
+        Time.zone.parse(@final_date) if @final_date.present?
       end
 
       private
