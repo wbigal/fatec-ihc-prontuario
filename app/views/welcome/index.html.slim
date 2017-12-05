@@ -1,54 +1,66 @@
 .jumbotron.container
-  h1.display-3
-    | Seja bem-vindo ao SPE
+  h1
+    | Sistema de Prontuário Eletrônico
   p
-    |  O Sistema de Prontuário Eletrônico, ou SPE, é o sistema nacional que conecta médicos ao histórico médico de cada cidadão. Conheça abaixo os benefícios proporcionados pelo SPE, por perfíl:
+    | Olá
+    strong  #{current_pessoa.nome_completo}
+
+    - if medico_signed_in?
+      | , aqui no SPE você tem acesso ao prontuários de seus pacientes, assim como
+      |  ao seu próprio histórico médico.
+    - else
+      | , aqui no SPE você tem acesso ao seu histórico médico.
+    p Veja abaixo algumas funcionalidades disponíveis para você.
 .container
   .row
-    .col-md-6
-      h2
-        | Médicos
-      p
-        | Possibilidade de conhecer o histórico do paciente com rapidez e agilidade, no momento do antendimento. Não perca tempo e solicite seu cadastro.
-      p
-        a.btn.btn-info.btn-md[href="#" role="button" data-toggle="modal" data-target="#doctorSignUp"]
-          | Cadastre-se »
-    .col-md-6
-      h2
-        | Cidadãos
-      p
-        | Seu histórico médico não fica mais restrito ao local ou rede onde você foi atendido. Qualquer médico cadastrado no SPE terá acesso a seu histórico médico para melhor atende-lo.
-      p
-        a.btn.btn-info.btn-md[href="#" role="button" data-toggle="modal" data-target="#citizenSignUp"]
-          | Cadastre-se »
-  hr
-#doctorSignUp.modal.fade[tabindex="-1" role="dialog" aria-labelledby="doctorSignUpLabel" aria-hidden="true"]
-  .modal-dialog[role="document"]
-    .modal-content
-      .modal-header
-        h5#doctorSignUpLabel.modal-title
-          | Médico: como se cadastrar
-        button.close[type="button" data-dismiss="modal" aria-label="Close"]
-          span[aria-hidden="true"]
-            | ×
-      .modal-body
-        |  Você deve ter em mãos seu RG, CPF, comprovante de residência e documentação do CRM que comprove seu registro de médico. Solicite então a um Administrador seu cadastro de médico no Sistema de Prontuário Eletrônico.
-      .modal-footer
-        button.btn.btn-secondary[type="button" data-dismiss="modal"]
-          | Fechar
-#citizenSignUp.modal.fade[tabindex="-1" role="dialog" aria-labelledby="citizenSignUpLabel" aria-hidden="true"]
-  .modal-dialog[role="document"]
-    .modal-content
-      .modal-header
-        h5#citizenSignUpLabel.modal-title
-          | Cidadão: como se cadastrar
-        button.close[type="button" data-dismiss="modal" aria-label="Close"]
-          span[aria-hidden="true"]
-            | ×
-      .modal-body
-        |  Você deve ter em mãos seu RG, CPF, comprovante de residência e opcionalmente carteirinha do SUS. Solicite então a um Administrador seu cadastro de cidadão no Sistema de Prontuário Eletrônico.
-      .modal-footer
-        button.btn.btn-secondary[type="button" data-dismiss="modal"]
-          | Fechar
+    - if medico_signed_in?
+      .col-md-6
+        h2
+          | Registre Atendimentos
+        p
+          | Registre os atendimentos que você realizar e eles estarão estarão sempre
+          |  disponíveis para sua consulta. Isso também ajudará aos pacientes terem melhor
+          |  gestão sobre seus históricos médicos.
+        p.text-center
+          = link_to doctors_medical_records_path, class: 'btn btn-info btn-md' do
+            | Novo Atendimento »
+      .col-md-6
+        h2
+          | Seus Atendimentos
+        p
+          | Consulte a qualquer momento o seu histórico de atendimentos. Realize consultas
+          |  por data e por paciente para encontrar os seus registros de atendimentos.
+        p.text-center
+          = link_to doctors_my_appointments_path, class: 'btn btn-info btn-md' do
+            | Atendimentos »
+    - else
+      .col-md-6
+        h2
+          | Meu Prontuário
+        p
+          | Consulte a qualquer momento o seu histórico médico. Realize consultas por data e por médico
+          |  para encontrar os seus registros médicos.
+        p.text-center
+          = link_to patients_my_medical_records_path, class: 'btn btn-info btn-md' do
+            | Meu Prontuário »
+      .col-md-6
+        h2
+          | Autorizar Médicos
+        p
+          | Apenas médicos autorizados podem acessar o seu prontuário. Autorize um médico para que ele
+          |  conheça seu histórico médico e consiga registrar seus atendimentos.
+        p.text-center
+          = link_to search_doctor_patients_permissions_path, class: 'btn btn-info btn-md' do
+            | Autorizar Médico »
+      .col-md-6
+        h2
+          | Médicos Autorizados
+        p
+          | Você pode visualizar os médicos que possuem permissão de acesso ao seu prontuários
+          |  assim como revogar esta permissão.
+        p.text-center
+          = link_to patients_permissions_path, class: 'btn btn-info btn-md' do
+            | Médicos Autorizados »
+
 - content_for(:stylesheet) do
   = stylesheet_link_tag 'welcome', media: 'all'
