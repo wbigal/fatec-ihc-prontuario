@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
   root 'welcome#index'
 
+  namespace :api do
+    resources :people, only: %i[create]
+  end
+
   localized do
     namespace :accounts do
       resource :sessions, only: %i[new create destroy]
