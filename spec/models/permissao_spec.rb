@@ -74,4 +74,54 @@ RSpec.describe Permissao, type: :model do
       it { expect(Permissao.actived).to be_blank }
     end
   end
+
+  describe '.granted' do
+    context 'when actived permissao is not granted' do
+      let!(:permissao) { create(:permissao, revogado: false) }
+      it { expect(Permissao.granted).to eq([permissao]) }
+    end
+
+    context 'when actived permissao is not granted' do
+      let!(:permissao) { create(:permissao, revogado: true) }
+      it { expect(Permissao.granted).to be_blank }
+    end
+  end
+
+  describe '.accepted' do
+    context 'when actived permissao is accepted' do
+      let!(:permissao) { create(:permissao, nao_aceito: false) }
+      it { expect(Permissao.accepted).to eq([permissao]) }
+    end
+
+    context 'when actived permissao is not accepted' do
+      let!(:permissao) { create(:permissao, nao_aceito: true) }
+      it { expect(Permissao.accepted).to be_blank }
+    end
+  end
+
+  describe '.pending_appointment' do
+    context 'when actived permissao is pending_appointment' do
+      let!(:permissao) { create(:permissao, atendimento: nil) }
+      it { expect(Permissao.pending_appointment).to eq([permissao]) }
+    end
+
+    context 'when actived permissao is not pending_appointment' do
+      let(:atendimento) { create(:atendimento) }
+      let!(:permissao) { create(:permissao, atendimento: atendimento) }
+      it { expect(Permissao.pending_appointment).to be_blank }
+    end
+  end
+
+  describe '.current' do
+    context 'when actived permissao is current' do
+      let!(:permissao) { create(:permissao, data_limite: 1.day.from_now) }
+      it { expect(Permissao.current).to eq([permissao]) }
+    end
+
+    context 'when actived permissao is not current' do
+      let(:atendimento) { create(:atendimento) }
+      let!(:permissao) { create(:permissao, data_limite: 1.day.ago) }
+      it { expect(Permissao.current).to be_blank }
+    end
+  end
 end
