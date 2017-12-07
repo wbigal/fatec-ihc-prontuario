@@ -21,4 +21,4 @@
       .text-center
         p.required-hint
           | Os campos marcados com * precisam ser preenchidos
-        = f.submit value: 'Gravar Atendimento', class: 'btn btn-primary', data: { disable_with: '...' }
+        = f.submit value: 'Gravar Atendimento', class: 'btn btn-primary', data: { disable_with: '...', confirm: "Você não poderá alterar este registro após gravá-lo.\nTem certeza que seja gravar o atendimento agora?" }
