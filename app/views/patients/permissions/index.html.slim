@@ -17,8 +17,14 @@
             dd.col-10
               = permissao.medico.pessoa.nome_completo
           em
-            | Esta autorização é válida até:
+            - if permissao.refused?
+              | Esta autorização era válida até:
+            - else
+              | Esta autorização é válida até:
             strong<> = l(permissao.data_limite, format: :custom)
+        - if permissao.refused?
+          p.text-center.attention
+            | O médico não aceitou esta autorização.
         .text-center
           = link_to 'Revogar Autorização', patients_permission_path(permissao), class: 'btn btn-danger', method: :delete, data: { confirm: "Tem certeza que deseja revogar a autorização ao médico #{permissao.medico.pessoa.nome_completo}?" }
         hr

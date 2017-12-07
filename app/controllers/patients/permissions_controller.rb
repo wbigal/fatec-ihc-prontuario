@@ -7,7 +7,9 @@ module Patients
       @permissoes = current_pessoa.permissoes.
                     includes(medico: :pessoa).
                     joins(medico: :pessoa).
-                    actived
+                    granted.
+                    pending_appointment.
+                    current
     end
 
     def search_doctor; end

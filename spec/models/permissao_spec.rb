@@ -51,6 +51,18 @@ RSpec.describe Permissao, type: :model do
     it { is_expected.to respond_to(:revogado) }
   end
 
+  describe '#refused?' do
+    context 'when actived permissao is not refused' do
+      let(:permissao) { create(:permissao, nao_aceito: false) }
+      it { expect(permissao.refused?).to be_falsy }
+    end
+
+    context 'when actived permissao is refused' do
+      let(:permissao) { create(:permissao, nao_aceito: true) }
+      it { expect(permissao.refused?).to be_truthy }
+    end
+  end
+
   describe '.actived' do
     let!(:permissao) { create(:permissao) }
 

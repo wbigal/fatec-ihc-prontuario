@@ -32,4 +32,8 @@ class Permissao < ApplicationRecord
   scope :accepted, -> { where(nao_aceito: false) }
   scope :pending_appointment, -> { where(atendimento_id: nil) }
   scope :current, -> { where('data_limite >= ?', Time.zone.now) }
+
+  def refused?
+    nao_aceito == true
+  end
 end
