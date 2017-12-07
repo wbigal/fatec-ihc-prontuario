@@ -23,6 +23,7 @@ class Permissao < ApplicationRecord
   validates :data_autorizacao, presence: true
   validates :nao_aceito, inclusion: { in: [true, false] }
   validates :revogado, inclusion: { in: [true, false] }
+  validate :validate_data_limite, on: :create
 
   scope :actived, (lambda do
     granted.accepted.pending_appointment.current
@@ -35,5 +36,12 @@ class Permissao < ApplicationRecord
 
   def refused?
     nao_aceito == true
+  end
+
+  private
+
+  def validate_data_limite
+    return if data_limite.blank? || data_limite >= 1.hour.from_now
+    errors.add(:data_limite, 'deve oferecer ao menos uma hora de autorização')
   end
 end

@@ -60,7 +60,7 @@ RSpec.describe Patients::PermissionsController, :authenticated,
   describe 'POST create' do
     let(:medico) { create(:medico) }
     let(:pessoa) { current_pessoa }
-    let(:data_limite) { 1.hour.from_now }
+    let(:data_limite) { 2.hours.from_now }
     let(:permissao_params) do
       Hash[medico_id: medico.id, data_limite: data_limite]
     end

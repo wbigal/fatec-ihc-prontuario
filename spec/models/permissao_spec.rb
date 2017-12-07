@@ -37,6 +37,21 @@ RSpec.describe Permissao, type: :model do
 
   describe '#data_limite' do
     it { is_expected.to validate_presence_of(:data_limite) }
+
+    context 'when the data_limite is bigger or equal than one hour' do
+      subject { build(:permissao, data_limite: 65.minutes.from_now) }
+      it { expect(subject.save).to be_truthy }
+    end
+
+    context 'when the data_limite is less than one hour' do
+      subject { build(:permissao, data_limite: 59.minutes.from_now) }
+
+      it { expect(subject.save).to be_falsy }
+      it do
+        subject.save
+        expect(subject.errors).to have_key(:data_limite)
+      end
+    end
   end
 
   describe '#data_autorizacao' do
@@ -126,14 +141,8 @@ RSpec.describe Permissao, type: :model do
 
   describe '.current' do
     context 'when actived permissao is current' do
-      let!(:permissao) { create(:permissao, data_limite: 1.day.from_now) }
+      let!(:permissao) { create(:permissao, data_limite: 2.days.from_now) }
       it { expect(Permissao.current).to eq([permissao]) }
-    end
-
-    context 'when actived permissao is not current' do
-      let(:atendimento) { create(:atendimento) }
-      let!(:permissao) { create(:permissao, data_limite: 1.day.ago) }
-      it { expect(Permissao.current).to be_blank }
     end
   end
 end

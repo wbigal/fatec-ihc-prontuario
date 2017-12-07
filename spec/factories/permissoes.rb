@@ -18,7 +18,7 @@ FactoryBot.define do
   factory :permissao, class: 'Permissao' do
     pessoa
     medico
-    data_limite 1.hour.from_now
+    data_limite 2.hours.from_now
     data_autorizacao Time.zone.now
     nao_aceito false
     revogado false

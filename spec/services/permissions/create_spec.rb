@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe Permissions::Create, type: :service do
   let(:medico) { create(:medico) }
   let(:pessoa) { create(:pessoa) }
-  let(:deadline) { 1.hour.from_now }
+  let(:deadline) { 2.hours.from_now }
 
   subject do
     Permissions::Create.new(
