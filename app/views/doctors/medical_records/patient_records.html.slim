@@ -7,6 +7,13 @@
     h2
       | Dados do Paciente
     = render 'patient_info', permissao: @permissao
+
+  section#actions-area
+    .row
+      .col-12.text-center
+        = link_to 'Voltar', doctors_medical_records_path, class: 'btn btn-secondary'
+        = link_to 'Novo Atendimento', new_doctors_medical_record_path(permissao_id: @permissao.id), class: 'btn btn-primary ml-20'
+
   hr
 
   section#medical-records-area
@@ -45,10 +52,12 @@
     - else
       p.text-center.attention
         | O paciente não possui registros médicos em seu prontuário.
-  hr
 
-  section#actions-area
-    .row
-      .col-12.text-center
-        = link_to 'Voltar', doctors_medical_records_path, class: 'btn btn-secondary'
-        = link_to 'Novo Atendimento', new_doctors_medical_record_path(permissao_id: @permissao.id), class: 'btn btn-primary ml-20'
+  - if @atendimentos.count > 1
+    hr
+
+    section#actions-footer-area
+      .row
+        .col-12.text-center
+          = link_to 'Voltar', doctors_medical_records_path, class: 'btn btn-secondary'
+          = link_to 'Novo Atendimento', new_doctors_medical_record_path(permissao_id: @permissao.id), class: 'btn btn-primary ml-20'
