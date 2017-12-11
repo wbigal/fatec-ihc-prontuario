@@ -37,6 +37,10 @@ gem 'route_translator'
 # Forms made easy for Rails! It's tied to a simple DSL, with no opinion on
 # markup.
 gem 'simple_form'
+# Elasticsearch integrations for ActiveModel/Record and Ruby on Rails
+gem 'elasticsearch-model'
+# Elasticsearch integrations for ActiveModel/Record and Ruby on Rails
+gem 'elasticsearch-rails'
 # A Ruby static code analyzer, based on the community Ruby style guide.
 gem 'rubocop', require: false
 
@@ -86,6 +90,8 @@ group :test do
   gem 'rails-controller-testing'
   # CodeClimate Test Integration
   gem 'codeclimate-test-reporter', require: nil
+  # This library provides a set of extensions to the elasticsearch Rubygem.
+  gem 'elasticsearch-extensions'
   # A gem providing "time travel", "time freezing", and "time acceleration"
   # capabilities, making it simple to test time-dependent code.
   gem 'timecop'
