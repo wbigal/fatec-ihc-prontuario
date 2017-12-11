@@ -17,6 +17,9 @@
 require 'rails_helper'
 
 RSpec.describe Atendimento, type: :model do
+  it { is_expected.to be_kind_of(Elasticsearch::Model) }
+  it { is_expected.to be_kind_of(Elasticsearch::Model::Callbacks) }
+
   it 'has a valid factory' do
     expect(create(:atendimento)).to be_valid
   end

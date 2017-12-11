@@ -15,6 +15,8 @@
 #
 
 class Atendimento < ApplicationRecord
+  include Searchables::Atendimento
+
   belongs_to :pessoa, required: true
   belongs_to :medico, required: true
   has_one :permissao, dependent: :destroy
