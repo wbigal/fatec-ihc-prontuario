@@ -32,24 +32,15 @@ module Doctors
     end
 
     def search_atendimentos
-      query = Atendimento.joins(:pessoa).where(medico: current_pessoa.medico)
-      query = query_patient_name(query)
-      query = query_dates(query)
-      query.order(data_atendimento: :desc)
-    end
-
-    def query_dates(query)
-      query.where(
-        data_atendimento: @search.initial_date..@search.final_date
-      )
-    end
-
-    def query_patient_name(query)
-      return query if @search.patient_name.blank?
-      query.where(
-        'lower(pessoas.nome_completo) LIKE ?',
-        "%#{@search.patient_name.downcase}%"
-      )
+      params = Hash[medico_id: current_pessoa.medico.id]
+      if @search.patient_name.present?
+        params[:pessoa_nome] = @search.patient_name
+      end
+      Atendimento.search(
+        initial_date: @search.initial_date,
+        final_date: @search.final_date,
+        params: params
+      ).records.joins(:pessoa)
     end
   end
 end
