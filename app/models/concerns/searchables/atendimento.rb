@@ -8,6 +8,8 @@ module Searchables
       include Elasticsearch::Model
       include Elasticsearch::Model::Callbacks
 
+      index_name [model_name.collection, Rails.env].join('_')
+
       settings index: { number_of_shards: 1 } do
         mappings dynamic: false do
           indexes :sintomas, analyzer: :portuguese
