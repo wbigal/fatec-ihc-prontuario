@@ -20,6 +20,11 @@
             | Paciente
           dd.col-8
             = @search.patient_name
+        - if @search.query_text.present?
+          dt.col-4.query-text-title
+            | Palavras-Chave
+          dd.col-8
+            = @search.query_text
   hr
 
   section#appointments-area

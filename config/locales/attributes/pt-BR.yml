@@ -8,3 +8,4 @@ pt-BR:
     password: Senha
     cns: CNS
     password_confirmation: Confirmação da Senha
+    query_text: Palavras-Chave

@@ -48,4 +48,8 @@ RSpec.describe Doctors::MyAppointments::SearchForm, type: :form do
   describe '#patient_name' do
     it { is_expected.to respond_to(:patient_name) }
   end
+
+  describe '#query_text' do
+    it { is_expected.to respond_to(:query_text) }
+  end
 end

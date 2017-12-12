@@ -1,7 +1,7 @@
 module Doctors
   module MyAppointments
     class SearchForm < FormBase
-      attr_accessor :patient_name
+      attr_accessor :patient_name, :query_text
       attr_writer :initial_date, :final_date
 
       validates :initial_date, presence: true

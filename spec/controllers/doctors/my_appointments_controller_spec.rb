@@ -19,7 +19,7 @@ RSpec.describe Doctors::MyAppointmentsController, :authenticated_doctor,
   end
 
   describe 'GET search_result' do
-    let(:atendimento) { create(:atendimento, medico: current_pessoa_medico) }
+    let!(:atendimento) { create(:atendimento, medico: current_pessoa_medico) }
     let(:search_params) do
       Hash[
         initial_date: 1.day.ago,
@@ -30,6 +30,9 @@ RSpec.describe Doctors::MyAppointmentsController, :authenticated_doctor,
 
     before do
       create(:atendimento)
+      Atendimento.__elasticsearch__.create_index!(index: Atendimento.index_name,
+                                                  force: true)
+      Atendimento.import(force: true, refresh: true)
       process :search_result, method: :get, params: {
         locale: 'pt-BR',
         doctors_my_appointments_search_form: search_params
