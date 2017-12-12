@@ -27,18 +27,31 @@ module Patients
       params.require(:patients_my_medical_records_search_form).permit(
         :initial_date,
         :final_date,
-        :doctor_name
+        :doctor_name,
+        :query_text
       )
     end
 
     def search_atendimentos
-      params = Hash[pessoa_id: current_pessoa.id]
-      params[:medico_nome] = @search.doctor_name if @search.doctor_name.present?
       Atendimento.search(
         initial_date: @search.initial_date,
         final_date: @search.final_date,
-        params: params
+        params: query_params
       ).records.joins(:pessoa, medico: :pessoa)
+    end
+
+    def query_params
+      query_params = Hash[pessoa_id: current_pessoa.id]
+
+      if @search.query_text.present?
+        query_params[:query_text] = @search.query_text
+      end
+
+      if @search.doctor_name.present?
+        query_params[:medico_nome] = @search.doctor_name
+      end
+
+      query_params
     end
   end
 end

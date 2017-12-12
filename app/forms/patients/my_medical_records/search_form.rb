@@ -1,7 +1,7 @@
 module Patients
   module MyMedicalRecords
     class SearchForm < FormBase
-      attr_accessor :doctor_name
+      attr_accessor :doctor_name, :query_text
       attr_writer :initial_date, :final_date
 
       validates :initial_date, presence: true

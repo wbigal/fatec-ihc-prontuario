@@ -9,6 +9,7 @@
       = f.input :initial_date, input_html: { type: 'datetime-local' }, placeholder: 'Data inicial para pesquisa'
       = f.input :final_date, input_html: { type: 'datetime-local' }, placeholder: 'Data final para pesquisa'
       = f.input :doctor_name, placeholder: 'Nome do médico'
+      = f.input :query_text, placeholder: 'Palavras-chave do atendinento', hint: 'Pesquise sintomas, diagnósticos, medicamentos e procedimentos'
       .text-center
         p.required-hint
           | Os campos marcados com * precisam ser preenchidos
