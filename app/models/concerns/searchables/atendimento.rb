@@ -53,7 +53,10 @@ module Searchables
         def data_atendimento_query(initial_date:, final_date:)
           Hash[
             range: Hash[
-              data_atendimento: { gte: initial_date, lte: final_date }
+              data_atendimento: Hash[
+                gte: initial_date.iso8601,
+                lte: final_date.iso8601
+              ]
             ]
           ]
         end
