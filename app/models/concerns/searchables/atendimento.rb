@@ -18,6 +18,7 @@ module Searchables
           indexes :pessoa_id, type: 'integer'
           indexes :medico_id, type: 'integer'
           indexes :medico_nome
+          indexes :pessoa_nome
         end
       end
 
@@ -79,13 +80,17 @@ module Searchables
       def as_indexed_json(_ = {})
         as_json(methods: %i[sintomas diagnosticos prescricao_medicamentos
                             prescricao_procedimentos data_atendimento
-                            medico_nome pessoa_id medico_id])
+                            medico_nome pessoa_nome pessoa_id medico_id])
       end
 
       private
 
       def medico_nome
         medico&.pessoa&.nome_completo
+      end
+
+      def pessoa_nome
+        pessoa&.nome_completo
       end
     end
   end
