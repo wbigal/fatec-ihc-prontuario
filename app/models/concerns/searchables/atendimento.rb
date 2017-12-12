@@ -38,12 +38,16 @@ module Searchables
         private
 
         def query_init
-          Hash[query: Hash[bool: Hash[]]]
+          Hash[query: Hash[bool: Hash[]], sort: sort_init]
         end
 
         def filter_init(query)
           query[:query][:bool][:filter] = []
           query[:query][:bool][:filter]
+        end
+
+        def sort_init
+          [Hash[data_atendimento: Hash[order: :desc]]]
         end
 
         def data_atendimento_query(initial_date:, final_date:)
